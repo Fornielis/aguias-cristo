@@ -1,0 +1,23 @@
+﻿@* RETORNO *@
+<div class="conteudo-retorno animated zoomInDown">
+    <div class="retorno cor-degrade-preto" style="height:350px;">
+        <img src="~/Imagens/LOGO-ERRO.png" alt="IMG" />
+
+        <h5>NÃO SERÁ POSSIVEL!</h5>
+        <p style="color:#ffffff; margin: 0px;">Já existe um evento marcado para essa data.</p>
+
+        @* OK *@
+        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#datasEscolhidas" href="~/Evento/EventoDatasPorEvento?IdEvento=@ViewBag.IdEvento">
+            <input class="btn btn-ok" type="button" value="OK">
+        </a>
+
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario();
+    $('.btn-novo-membro').on('click', fecharFormulario);
+    $('.btn-ok').on('click', conteudoRetornoFechar);
+</script>
+

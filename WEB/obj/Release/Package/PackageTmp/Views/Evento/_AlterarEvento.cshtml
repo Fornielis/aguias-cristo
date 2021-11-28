@@ -1,0 +1,325 @@
+﻿@model DTO.Evento
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+        <form action="~/Evento/PostAlterarEvento" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" method="post">
+
+            @Html.ValidationSummary(true)
+
+            @* TARJA SUPERIOR *@
+            <div class="tarja-superior cor-degrade-preto">
+                <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>ALTERAR EVENTO</b></h4>
+
+                @* BOTÃO FECHAR *@
+                <div class="btn-sair-formulario"><b>SAIR</b></div>
+            </div>
+
+            @* CAMPOS FORMULÁRIO *@
+            <div class="campos-formulario">
+                <div class="box-conteudo-100">
+                    @* ID EVENTO *@
+                    <input type="hidden" name="IdEvento" id="IdEvento" value="@Model.IdEvento" />
+
+                    @* DESCRIÇÃO *@
+                    <div class="campo campo-100">
+                        <span class="field-validation-valid" data-valmsg-for="Descricao" data-valmsg-replace="true"></span><label>DESCRIÇÃO | TÍTULO</label>
+                        <input class="text-box single-line uppercase" data-val="true" data-val-required="OBRIGATÓRIO" id="Descricao" name="Descricao" type="text" maxlength="50" value="@Model.Descricao" />
+                    </div>
+
+                    @*LOCAL*@
+                    <div class="campo campo-100">
+                        <label>LOCAL</label>
+                        <input class="uppercase" id="Localidade" name="Localidade" type="text" maxlength="50" value="@Model.Localidade" />
+                    </div>
+
+                    @* ENDEREÇO *@
+                    <div class="campo campo-100">
+                        <label>ENDEREÇO</label>
+                        <input class="uppercase" id="Endereco" name="Endereco" type="text" maxlength="80" value="@Model.Endereco" />
+                    </div>
+
+                    @{
+                        // UNIDADES
+                        string perfil = Session["PerfilAcesso"].ToString();
+                        if (perfil == "DIR" || perfil == "SUP")
+                        {
+                            <div class="campo campo-25 campo-padding">
+                                <span class="field-validation-valid" data-valmsg-for="Unidade" data-valmsg-replace="true"></span><label>UNIDADE</label>
+                                <select class="text-box single-line uppercase" data-val="true" data-val-required="OBRIGATÓRIO" id="Unidade" name="Unidade">
+                                    <option value="@Model.Unidade">@Model.Unidade</option>
+                                    @foreach (var item in ViewBag.Unidades)
+                                    {
+                                        if (item.Unidade != Model.Unidade)
+                                        {
+                                            <option value="@item.Unidade">@item.Unidade</option>
+                                        }
+                                    }
+                                    <option value="REGIONAL">REGIONAL</option>
+                                </select>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="campo campo-25 campo-padding">
+                                <span class="field-validation-valid" data-valmsg-for="Unidade" data-valmsg-replace="true"></span><label>UNIDADE</label>
+                                <input class="text-box single-line uppercase" data-val="true" data-val-required="OBRIGATÓRIO" id="Unidade" name="Unidade" type="text" maxlength="50" value="@Session["Unidade"]" readonly="readonly" />
+                            </div>
+                        }
+                    }
+
+                    @* UF *@
+                    <div class="campo campo-25 campo-padding">
+                        <label>UF</label>
+                        <select class="text-box single-line uppercase" id="UF" name="UF">
+                            @{
+                                if (Model.UF == "N/A")
+                                {
+                                    <option value="">@Model.UF</option>
+                                }
+                                else
+                                {
+                                    <option value="@Model.UF">@Model.UF</option>
+                                }
+                            }
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+
+                    @* PAIS *@
+                    <div class="campo campo-25 campo-padding">
+                        <label>PAIS</label>
+                        <select class="text-box single-line uppercase" id="Pais" name="V">
+                            @{
+                                if (Model.Pais == "N/A")
+                                {
+                                    <option value="">@Model.Pais</option>
+                                }
+                                else
+                                {
+                                    <option value="@Model.Pais">@Model.Pais</option>
+                                }
+                            }
+                            <option value="Argentina">Argentina</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Japão">Japão</option>
+                            <option value="México">México</option>
+                            <option value="Paraguai">Paraguai</option>
+                            <option value="Portugal ">Portugal </option>
+                            <option value="Uruguai">Uruguai</option>
+                            <option value="Venezuela ">Venezuela </option>s
+                        </select>
+                    </div>
+
+                    @* CONTATO *@
+                    <div class="campo campo-25">
+                        <label>CONTATO</label>
+                        <input class="uppercase" id="Contato" name="Contato" type="text" maxlength="30" value="@Model.Contato" />
+                    </div>
+
+                    @* ANOTAÇÃO *@
+                    <div class="campo campo-100">
+                        <label>ANOTAÇÃO</label>
+                        <textarea class="uppercase" id="Anotacao" name="Anotacao">@Model.Anotacao</textarea>
+                    </div>
+
+                    @* BOTÕES *@
+                    <div class="campo-btn cor-degrade-cinza campo-100">
+
+                        @* BOTÃO DELETAR *@
+                        <input class="btn btn-margem-right campo-30" id="btn-deletar" type="button" value="DELETAR">
+
+                        @* BOTÃO ALTERAR *@
+                        <input class="btn campo-30" type="submit" value="ALTERAR">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        @* CAMPO DATAS *@
+        <div id="retorno-data-evento-alteracao" class="campo-100">
+
+            @* FORMULÁRIO DATAS *@
+            <div class="box-conteudo-50">
+                <form action="~/Evento/PostGravarEventoData" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#datasEscolhidas" id="formDias" method="post">
+                    @* TITULO *@
+                    <h3>DATAS EVENTO</h3>
+
+                    @* RETORNO LISTA DADOS *@
+                    <div id="datasEscolhidas"></div>
+
+                    @* CAMPOS FORMULÁRIO *@
+                    <div class="campos-formulario">
+
+                        @{
+                            if (perfil == "DIR" || perfil == "SUP")
+                            {
+                                // ID EVENTO
+                                <input type="hidden" id="IdEvento" name="IdEvento" value="@Model.IdEvento" />
+
+                                // DATA
+                                <div class="campo campo-padding campo-50">
+                                    <span class="field-validation-valid" data-valmsg-for="DataEvento" data-valmsg-replace="true"></span><label>DATA</label>
+                                    <input class="text-box single-line uppercase mask-data txt" data-val="true" data-val-required="OBRIGATÓRIO" id="DataEvento" name="DataEvento" type="text" minlength="10" value="" />
+                                </div>
+
+                                // RESERVA DATA
+                                <div class="campo campo-50">
+                                    <span class="field-validation-valid" data-valmsg-for="Reservado" data-valmsg-replace="true"></span><label>RESERVAR</label>
+                                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Reservado" name="Reservado">
+                                        <option value="NÃO">NÃO</option>
+                                        <option value="SIM">SIM</option>
+                                    </select>
+                                </div>
+                            }
+                            else
+                            {
+                                // ID EVENTO
+                                <input type="hidden" id="IdEvento" name="IdEvento" value="@Model.IdEvento" />
+
+                                // DATA
+                                <div class="campo campo-100">
+                                    <span class="field-validation-valid" data-valmsg-for="DataEvento" data-valmsg-replace="true"></span><label>DATA</label>
+                                    <input class="text-box single-line uppercase mask-data txt" data-val="true" data-val-required="OBRIGATÓRIO" id="DataEvento" name="DataEvento" type="text" minlength="10" value="" />
+                                </div>
+
+                                <input type="hidden" id="Reservado" name="Reservado" value="NÃO" />
+                            }
+                        }
+
+                        @* BOTÕES *@
+                        <div class="campo-btn cor-degrade-cinza campo-100">
+                            <input class="btn campo-60" type="submit" value="ADICIONAR DATA">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            @* FORMULÁRIO DARA DIVULGAÇÃO *@
+            <div class="box-conteudo-50">
+                <form action="~/Evento/PostGravarMesDivulgacao" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#MesDivulgacao" id="formMes" method="post">
+                    @* TITULO *@
+                    <h3>MESES DIVULGAÇÃO</h3>
+
+                    @* RETORNO LISTA DADOS *@
+                    <div id="MesDivulgacao"></div>
+
+                    @* CAMPOS FORMULÁRIO *@
+                    <div class="campos-formulario">
+
+                        @*ID EVENTO*@
+                        <input type="hidden" id="IdEvento" name="IdEvento" value="@Model.IdEvento" />
+
+                        @* MESES *@
+                        <div class="campo campo-100 campo-padding">
+                            <span class="field-validation-valid" data-valmsg-for="MesDivulgacao" data-valmsg-replace="true"></span><label>DIVULGAÇÃO</label>
+                            <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="MesDivulgacao" name="MesDivulgacao">
+                                <option value="">ESCOLHA</option>
+                                <option value="">ESCOLHA</option>
+                                <option value="JANEIRO">JANEIRO</option>
+                                <option value="FEVEREIRO">FEVEREIRO</option>
+                                <option value="MARÇO">MARÇO</option>
+                                <option value="ABRIL">ABRIL</option>
+                                <option value="MAIO">MAIO</option>
+                                <option value="JUNHO">JUNHO</option>
+                                <option value="JULHO">JULHO</option>
+                                <option value="AGOSTO">AGOSTO</option>
+                                <option value="SETEMBRO">SETEMBRO</option>
+                                <option value="OUTUBRO">OUTUBRO</option>
+                                <option value="NOVEMBRO">NOVEMBRO</option>
+                                <option value="DEZEMBRO">DEZEMBRO</option>
+                            </select>
+                        </div>
+
+                        @* BOTÕES *@
+                        <div class="campo-btn campo-btn-datas-gravar cor-degrade-cinza campo-100">
+                            <input class="btn campo-60" type="submit" value="ADICIONAR MÊS">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        @* RETORNO DATAS *@
+        <div id="retornoDatas"></div>
+
+
+        @* AVISO EXCLUSÃO *@
+        <div id="aviso-deletar" class="conteudo-retorno animated">
+            <div class="retorno cor-degrade-preto">
+                <img src="~/Imagens/LOGO-ATENCAO.png" alt="IMG" />
+
+                <h5>TEM CERTEZA QUE DESEJA EXCLUIR?</h5>
+
+                @* SIM *@
+                <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/DeleatarEvento?IdEvento=@Model.IdEvento">
+                    <input class="btn" type="button" value="SIM">
+                </a>
+
+                @* NÃO *@
+                <input class="btn" id="deletar-nao" type="button" value="NÃO">
+
+            </div>
+        </div>
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    mascarasTestos();
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('#btn-deletar').on('click', avisoDeletarAbrir);
+    $('#deletar-nao').on('click', avisoDeletarFechar);
+
+    // FUNÇÃO ASSINCRONA
+    // DATAS SALVAS PARA O EVENTO
+    $.get('/Evento/ListarEventoData?IdEvento=@Model.IdEvento', function (resultado) {
+        $('#datasEscolhidas').html(resultado);
+    });
+
+    // MESES DIVULGAÇÃO SALVO PARA O EVENTO
+    $.get('/Evento/ListarMesDivulgacao?IdEvento=@Model.IdEvento', function (resultado) {
+        $('#MesDivulgacao').html(resultado);
+    });
+
+    // VALIDAÇÃO
+    jQuery.validator.unobtrusive.parse();
+    jQuery.validator.unobtrusive.parse("#form");
+    jQuery.validator.unobtrusive.parse("#formDias");
+    jQuery.validator.unobtrusive.parse("#formMes");
+</script>
+

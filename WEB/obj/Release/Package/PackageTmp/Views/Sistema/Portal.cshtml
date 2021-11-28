@@ -1,0 +1,142 @@
+﻿@model DTO.UsuarioModuloAcessoLista
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    @* METAS - SITE *@
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    @* METAS - COMPARTILHAMENTO *@
+    <meta property="og:url" content="https://portal.mcaguiassp.com.br" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Águias de Cristo | Regional São Paulo" />
+    <meta property="og:description" content="Fique por dentro de todos eventos dessa grande fámilia de Cristo sobre duas rodas." />
+    <meta property="og:image" content="https://www.mcaguiassp.com.br/public/img/miniatura-portal-800x420.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <title>Portal</title>
+    <link href="~/Imagens/AguiasCristo_ICO.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+    @Styles.Render("~/Content/Portal")
+</head>
+<body>
+
+    @* MENU SUPERIOR *@
+    <nav id="menu-superior" class="cor-degrade-preto">
+
+        @* LOGO *@
+        <section class="animated bounceInDown">
+            <div class="menu-logo">
+                <img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Icone-Menu">
+            </div>
+
+            <h4><b>SISTEMA DE GESTÃO</b></h4>
+        </section>
+
+        @* USUÁRIO LOGADO *@
+        <div class="menu-info-usuario animated bounceInRight">
+            <h6 class="uppercase"><span class="icone-fonte"> </span>@Session["Nome"]</h6>
+            <a href="~/Login/Credenciais"><div class="usuario-sair icone-fonte"></div></a>
+        </div>
+
+    </nav>
+
+    @* CONTEÚDO *@
+    <div class="container-fluid">
+        <section class="row">
+
+            @* MENU LATERAL *@
+            <nav id="menu-lateral" class="col-xs-3 menu-fixo animated bounceInLeft">
+
+                @{
+                    // FAZ REINDERIZAÃO BASEADO NOS MUDULOS QUE O USUÁRIO POSSUI
+                    foreach (var item in Model)
+                    {
+                        // BANNER ||
+                        if (item.Modulo == "ALL" || item.Modulo == "MKT")
+                        {
+                            <div class="btn-menu" id="btn-mk">
+                                <p><span class="icone-fonte"> </span>BANNER</p>
+                                <h4 class="icone-fonte"></h4>
+                            </div>
+
+                            <ul class="menu-lateral-lista" id="ul-mk" style="display:none;">
+                                <li><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/GravarBanner"><span class="icone-fonte"> </span>Novo banner</a></li>
+                                <li><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/ListarBanner"><span class="icone-fonte"> </span>Listar banners</a></li>
+                            </ul>
+                        }
+
+                        // UNIDADES
+                        if (item.Modulo == "ALL" || item.Modulo == "ADM")
+                        {
+                            <div class="btn-menu" id="btn-unidades">
+                                <p><span class="icone-fonte"> </span>UNIDADES</p>
+                                <h4 class="icone-fonte"></h4>
+                            </div>
+
+                            <ul class="menu-lateral-lista" id="ul-unidades" style="display:none;">
+                                <li class="menu-lateral-item"><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Unidade/GravarUnidade"><span class="icone-fonte"> </span>Nova unidade</a></li>
+                                <li><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Unidade/ListarUnidade"><span class="icone-fonte"> </span>Listar unidades</a></li>
+                            </ul>
+                        }
+
+                        // MEMBROS
+                        if (item.Modulo == "ALL" || item.Modulo == "ADM")
+                        {
+                            <div class="btn-menu" id="btn-membros">
+                                <p><span class="icone-fonte"> </span>MEMBROS</p>
+                                <h4 class="icone-fonte"></h4>
+                            </div>
+
+                            <ul class="menu-lateral-lista" id="ul-membros" style="display:none;">
+                                <li class="menu-lateral-item"><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Membros/GravarMembro"><span class="icone-fonte"> </span>Novo membro</a></li>
+                                <li><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Membros/ListarMembro"><span class="icone-fonte"> </span>Listar membros</a></li>
+                            </ul>
+                        }
+
+                        // EVENTOS
+                        if (item.Modulo == "ALL" || item.Modulo == "MKT")
+                        {
+                            <div class="btn-menu" id="btn-eventos">
+                                <p><span class="icone-fonte"> </span>EVENTOS</p>
+                                <h4 class="icone-fonte"></h4>
+                            </div>
+
+                            <ul class="menu-lateral-lista" id="ul-eventos" style="display:none;">
+                                <li class="menu-lateral-item"><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/GravarEvento"><span class="icone-fonte"> </span>Novo Evento</a></li>
+                                <li><a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventos"><span class="icone-fonte"> </span>Listar Eventos</a></li>
+                            </ul>
+                        }
+                    }
+                }
+
+                @* MASCARA MENU INATIVO *@
+                <div id="menu-inativo"></div>
+
+            </nav>
+
+            @* CONTEUDO *@
+            <div id="conteudo" class="col-xs-9 col-xs-offset-3"></div>
+
+        </section>
+    </div>
+
+    @* PROGRESS *@
+    <div id="progress">
+        <div><img src="~/Imagens/LoaderAguiasCristo.gif" alt="IMG CARREGAMENTO" /></div>
+    </div>
+
+    @* MENSAGEM ERRO FORMATO DE TELA *@
+    <div id="erro-tela" class="animated swing">
+        <img src="~/Imagens/ErroFormatoTela.png" alt="IMG-ERRO" />
+        <a href="~/Home/RegionalSP"><input class="btn cor-degrade-preto" type="button" value="Voltar"></a>
+    </div>
+</body>
+
+@Scripts.Render("~/bundles/Portal")
+
+</html>
+
+

@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <title>Aguias Cristo</title>
+    <link href="~/Imagens/AguiasCristo_ICO.ico" rel="shortcut icon" type="image/x-icon">
+    @Styles.Render("~/Content/erro")
+</head>
+<body class="tela-erro">
+
+    @* ERRO *@
+    <div id="erro" class="cor-degrade-preto animated zoomInDown">
+        <img src="~/Imagens/LOGO-ERRO.png" alt="IMG" />
+
+        <h5>OPS!</h5>
+
+        <br />
+        @{ // ERRO DE SISTEMA
+            if (ViewBag.Retorno != null && ViewBag.Retorno > 0)
+            {
+                <p>
+                    Ocorreu um erro no sistema, nossa equipe de TI foi notificada e entrará em contato. <br />
+                    Número protocólo: @ViewBag.Retorno
+                </p>
+            }
+            // ERRO IMPREVISTO
+            else
+            {
+                <p>
+                    Ocorreu um erro, por favor entre em contato com nossa equipe de TI através do e-mail sistema.aguias.cristo@gmail.com
+                </p>
+            }
+        }
+        <br />
+
+        <a href="~/Login/Credenciais">
+            <input class="btn" type="button" value="OK">
+        </a>
+
+    </div>
+
+    @Scripts.Render("~/bundles/erro")
+
+</body>
+</html>

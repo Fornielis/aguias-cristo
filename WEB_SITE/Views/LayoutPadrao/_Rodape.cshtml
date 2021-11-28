@@ -1,0 +1,57 @@
+﻿@model DTO.Home
+@* RODAPÉ *@
+<footer class="cor-degrade-preto">
+
+    @* SUPERIOR *@
+    <div class="container">
+        <section class="row">
+
+            @* REDES SOCIAIS *@
+            <div class="footer-redes-sociais col-xs-12">
+
+                @{
+                    if (ViewBag.HomeInfo.UrlFaceBook != "" || ViewBag.HomeInfo.UrlInstagran != "" || ViewBag.HomeInfo.UrlYouTube != "")
+                    {
+                        <p>Siga-nos nas Redes Sociais</p>
+                        <ul>
+                            @{
+                                if (ViewBag.HomeInfo.UrlFaceBook != "")
+                                {
+                                    <li><a href="@ViewBag.HomeInfo.UrlFaceBook" target="_blank"><div><img src="~/Imagens/icone-face.png" alt="img-icone"></div></a></li>
+                                }
+                                if (ViewBag.HomeInfo.UrlInstagran != "")
+                                {
+                                    <li><a href="@ViewBag.HomeInfo.UrlInstagran" target="_blank"><div><img src="~/Imagens/icone-instagran.png" alt="img-icone"></div></a></li>
+                                }
+                                if (ViewBag.HomeInfo.UrlYouTube != "")
+                                {
+                                    <li><a href="@ViewBag.HomeInfo.UrlYouTube" target="_blank"><div><img src="~/Imagens/icone-youtube.png" alt="img-icone"></div></a></li>
+                                }
+                            }
+                        </ul>
+
+                                if (ViewBag.HomeInfo.NomeRedes != "")
+                                {
+                                    <h1><span class="icone-fonte-laranja"></span>@ViewBag.HomeInfo.NomeRedes</h1>
+                                }
+                    }
+                }
+            </div>
+        </section>
+    </div>
+
+    @* INFERIOR *@
+    <div class="footer-info">
+        <div class="container">
+            <section class="row">
+                <div class="col-xs-12">
+                    <p><span class="icone-fonte-laranja"></span> 2018 Moto Clube Águias de Cristo. Todos os direitos reservados</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    @* TARJA FIM *@
+    <div class="tarja-fim cor-degrade-laranja"></div>
+
+</footer>

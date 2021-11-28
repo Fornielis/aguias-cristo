@@ -1,0 +1,164 @@
+﻿@model DTO.Unidade
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+        <form action="~/Unidade/PostGravarUnidade" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" method="post">
+
+            @Html.ValidationSummary(true)
+
+            @* TARJA SUPERIOR *@
+            <div class="tarja-superior cor-degrade-preto">
+                <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>CADASTRO UNIDADE</b></h4>
+
+                @* BOTÃO FECHAR *@
+                <div class="btn-sair-formulario"><b>SAIR</b></div>
+            </div>
+
+            @* CAMPOS FORMULÁRIO *@
+            <div class="campos-formulario">
+
+                @* NOME *@
+                <div class="campo campo-40 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="Nome" data-valmsg-replace="true"></span><label>NOME UNIDADE</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Nome" name="Nome" type="text" maxlength="100" value="" />
+                </div>
+
+                @* ENDEREÇO *@
+                <div class="campo campo-60">
+                    <span class="field-validation-valid" data-valmsg-for="Endereco" data-valmsg-replace="true"></span><label>ENDEREÇO</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Endereco" name="Endereco" type="text" value="" />
+                </div>
+
+                @* ESTATUS *@
+                <div class="campo campo-25 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="Estatus" data-valmsg-replace="true"></span><label>ESTATUS</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Estatus" name="Estatus">
+                        <option value="">ESCOLHA</option>
+                        <option value="UNIDADE">UNIDADE</option>
+                        <option value="NÚCLEO">NÚCLEO</option>
+                    </select>
+                </div>
+
+                @* PAIS *@
+                <div id="campoPais" class="campo campo-25 campo-padding" onchange="ocultarUF()">
+                    <span class="field-validation-valid" data-valmsg-for="Pais" data-valmsg-replace="true"></span><label>PAIS</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Pais" name="Pais">
+                        <option value="">ESCOLHA</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="Japão">Japão</option>
+                        <option value="México">México</option>                  
+                        <option value="Paraguai">Paraguai</option>
+                        <option value="Portugal ">Portugal </option>
+                        <option value="Uruguai">Uruguai</option>
+                        <option value="Venezuela ">Venezuela </option>s
+                    </select>
+                </div>
+
+                @* UF *@
+                <div id="campoUF" class="campo campo-25 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="UF" data-valmsg-replace="true"></span><label>UF</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="UF" name="UF">
+                        <option value="">ESCOLHA</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+
+                @* CIDADE *@
+                <div id="campoCidade" class="campo campo-25">
+                    <span class="field-validation-valid" data-valmsg-for="Cidade" data-valmsg-replace="true"></span><label>CIDADE</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Cidade" name="Cidade" maxlength="30" type="text" value="" />
+                </div>
+
+                @* TELEFONE *@
+                <div class="campo campo-25 campo-padding">
+                    <label>TELEFONE</label>
+                    <input class="uppercase txt" id="Telefone" name="Telefone" maxlength="30" type="text" value="" />
+                </div>
+
+                @* E-MAIL *@
+                <div class="campo campo-25 campo-padding">
+                    <label>E-MAIL</label>
+                    <input class="txt" id="Email" name="Email" maxlength="100" type="text" value="" />
+                </div>
+
+                @* REUNIÕES *@
+                <div class="campo campo-25 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="Reunioes" data-valmsg-replace="true"></span><label>REUNIÕES</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Reunioes" name="Reunioes" type="text" value="" />
+                </div>
+
+                @* REGIONAL *@
+                <div class="campo campo-25">
+                    <label>REGIONAL</label>
+                    <input id="Regional" name="Regional" type="text" value="" />
+                </div>
+
+                @* URL - SITE *@
+                <div class="campo campo-100">
+                    <label>URL SITE</label>
+                    <input class="txt" id="UrlSite" name="UrlSite" type="text" value="" />
+                </div>
+
+                @* URL - GOOGLE MAPS *@
+                <div class="campo campo-100">
+                    <span class="field-validation-valid" data-valmsg-for="UrlGoogleMaps" data-valmsg-replace="true"></span><label>URL GOOGLE MAPS</label>
+                    <input class="text-box single-line txt" data-val="true" data-val-required="OBRIGATÓRIO" id="UrlGoogleMaps" name="UrlGoogleMaps" type="text" value="" />
+                </div>
+
+                @* BOTÕES *@
+                <div class="campo-btn cor-degrade-cinza campo-100">
+                    <input class="btn btn-margem-right campo-30" id="btn-limpar" type="button" value="LIMPAR">
+                    <input class="btn campo-30" type="submit" value="SALVAR">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    mascarasTestos();
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('#btn-limpar').on('click', limparTextos);
+
+    // VALIDAÇÃO
+    jQuery.validator.unobtrusive.parse();
+    jQuery.validator.unobtrusive.parse("#form");
+
+</script>

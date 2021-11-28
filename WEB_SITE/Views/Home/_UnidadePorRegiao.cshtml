@@ -1,0 +1,45 @@
+﻿@model DTO.UnidadeLista
+
+@* CONTEUDO RETORNO *@
+<div class="retorno-unidade animated bounceInDown">
+
+    @* TITULO *@
+    <section>
+        <h1><span class="icone-fonte"> </span>Unidades - @ViewBag.Item</h1>
+    </section>
+
+    @* ITENS POR REGIÃO *@
+    <div class="col-sm-4 col-sm-offset-4 col-xs-12">
+        @{
+            foreach (var item in Model)
+            {
+                <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoUnidade" href="~/Home/DetalheUnidade?idUnidade=@item.IdUnidade">
+                    <div class="btn-unidades col-sm-6 cor-degrade-preto">
+                        <p>@item.Nome</p>
+                    </div>
+                </a>
+            }
+        }
+
+        @* BOTÃO VOLTAR *@
+        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoUnidade" href="~/Home/ListarUnidadeAtiva">
+            <div class="btn-unidades col-sm-12 cor-degrade-preto" style="margin-top: 20px;">
+                <p>VOLTAR</p>
+            </div>
+        </a>
+    </div>
+
+    
+
+</div>
+
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // ROLAR PARA SEÇÃO UNIDADES
+    $('.btn-unidades').on('click', function () {
+        window.location.href = '#Unidades';
+    });
+
+</script>

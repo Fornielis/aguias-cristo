@@ -1,0 +1,154 @@
+﻿/* Responsividade:
+   
+    - Grid Bootstrap:
+        col-xs | até 480px
+        col-sm | maior igual 768px
+        col-md | maior igual 998px
+        col-lg | maior igual 1200px
+-------------------------------------------------- */
+/* ERRO TELA
+-------------------------------------------------- */
+.tela-erro {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+}
+
+/* ERRO LOGIN
+-------------------------------------------------- */
+#erro{
+    width: 300px;
+    height: 384px;
+    border-bottom-left-radius: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    margin-top: -192px;
+    left: 50%;
+    margin-left: -150px;
+    z-index: 999;
+    border-bottom: solid 4px #ff6a00;
+    border-top: solid 4px #ff6a00;
+    text-align: center;
+}
+#erro img{
+    width: 100%;
+    margin-bottom: 15px;
+}
+#erro h5{
+    font-size: 160%;
+    color: #ff6a00;
+}
+#erro p{
+    font-size: 120%;
+    color: #ffffff;
+}
+#erro .btn{
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    margin-bottom: 0px;
+    background-color: #ff6a00;
+    border-bottom: solid 2px #000000;
+    float: left;
+    transition: all .4s;
+}
+#erro .btn:hover{
+    background-color: #000000;
+    border-bottom: solid 2px #ff6a00;
+}
+
+/* ERRO SISTEMA
+-------------------------------------------------- */
+#conteudo-erro-sistema {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.7);
+}
+
+#erro-sistema {
+    width: 300px;
+    height: 384px;
+    background-color: #e9e4e4;
+    border-radius: 10px;
+    border-bottom: solid 4px #ff6a00;
+    border-top: solid 4px #ff6a00;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    margin-top: -260px;
+    left: 50%;
+    margin-left: -150px;
+    text-align: center;
+}
+
+    #erro-sistema img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #erro-sistema h5 {
+        font-size: 160%;
+        color: #ff6a00;
+        margin-top: 10px;
+    }
+
+    #erro-sistema p {
+        font-size: 150%;
+        color: #ffffff;
+        line-height: 120%;
+        margin-top: -20px;
+    }
+
+    #erro-sistema .btn {
+        width: 100%;
+        height: 50px;
+        color: #ffffff;
+        margin-bottom: 0px;
+        background-color: #ff6a00;
+        border-bottom: solid 2px #000000;
+        float: left;
+        font-size: 150%;
+        margin-top: 10px;
+        transition: all .4s;
+    }
+
+        #erro-sistema .btn:hover {
+            background-color: #000000;
+            border-bottom: solid 2px #ff6a00;
+        }
+
+/* MEDIA QUERY 
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 1119px) {
+    #erro-tela {
+        display: block;
+        width: 300px;
+        height: 622px;
+        position: absolute;
+        top: 50%;
+        margin-top: -311px;
+        left: 50%;
+        margin-left: -150px;
+    }
+
+        #erro-tela .btn {
+            width: 60%;
+            height: 50px;
+            color: #ffffff;
+            position: absolute;
+            bottom: 20px;
+            left: 20%;
+            margin-bottom: 0px;
+            border-bottom: solid 2px #ff6a00;
+            float: left;
+            transition: all .4s;
+        }
+}

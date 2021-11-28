@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "~/Views/LayoutPadrao/_HomeLayout.cshtml";
+}
+@Styles.Render("~/Content/Index")
+
+@* CARROSSEL *@
+<div id="Home" class="section">
+    <div class="container">
+        <div id="resultadoCarrossel" class="row"></div>
+    </div>
+</div>
+
+@* UNIDADES *@
+<div id="Unidades" class="section">
+    <div class="container">
+        <div id="resultadoUnidade" class="row unidade-animacao animated fadeOutDown"></div>
+    </div>
+</div>
+
+@* HISTÓRIA *@
+<div id="Historia" class="section">
+    <div class="container">
+        <div class="row historia-animacao animated fadeOutDown">
+
+            @* TEXTO HISTÓRIA *@
+            <div class="histotia-texto col-sm-6 col-xs-12">
+                <h1><span class="icone-fonte"></span> Fundação dos Águias de Cristo</h1>
+                <p>
+                    Em São Paulo, o Moto Clube foi criado em 09 de novembro de 2013, na casa do Presidente, na época o pastor Alessandro Richter, em intercâmbio com o MC Águias de Cristo POÁ.<br />
+                    Hoje o Águias de Cristo São Paulo está em nova sede à Rua do Cursino 2995, liderado pelo Presidente Fábio Passos. <br />
+                    Mas antes disso, o Senhor falou ao nosso presidente fundador, Ernani Macedo, como ele mesmo relata: <br />
+                    Era noite, cerca de 21 horas aproximadamente, eu estava com um grupo de motociclistas de um conhecido moto clube que existia em Nova Friburgo, num local conhecido como véu das noivas tranquilamente tomando um refrigerante. Já era escudado por eles, mas na verdade algo me incomodava pois sentia-me um “estranho no ninho”. Eu era o único cristão do grupo e raramente me davam a oportunidade de falar de Jesus, coisas de ímpio… de repente, meu coração acelerou e uma voz suave, mas ao mesmo tempo carregada de autoridade falou: – “Quero que você saia daqui agora, pois tenho coisas a lhe dizer! ” - “Quero que você monte um moto clube e ele se chamará “Águias de Cristo”
+                    – “Este moto clube é meu e vocês serão minhas águias, pois quando se cansarem e quiserem desistir, Eu os renovarei como águia citada em minha palavra em Isaías 40:31.<br />
+                    O Senhor abençoou: – “Lembre-se: o comando é meu! Estarei sempre na frente e não permitirei legalismo, orgulho e pecado no meio de vocês. Quando saírem para levarem a minha palavra, Eu os dirigirei”.
+                    Sendo assim, obedecendo a ordem de Deus, em 17 de novembro do ano de 2000, nascia o moto clube ÁGUIAS DE CRISTO.
+                </p>
+            </div>
+
+            @* LOGO HISTÓRIA *@
+            <div class="histotia-texto col-sm-6 col-xs-12">
+                <h1><span class="icone-fonte"></span> Sobre o Logotipo</h1>
+                <p>
+                    O Senhor falou:– “Desenhe um círculo negro, envolto numa faixa cor de ouro, outra mais fina branca e no centro coloque a figura de uma águia, a mais linda que eu mostrarei a você no Google. Sobre ela escreverás ‘Águias de Cristo’ e sob ela escreverás ‘Moto Clube Nova Friburgo – RJ. <br />
+                    Vocês são minhas águias! Este ministério não pertence a nenhuma denominação e sim, única e exclusivamente a Mim!”
+                </p>
+
+                @* CORES *@
+                <h1><span class="icone-fonte"></span> Significado das Cores</h1>
+
+                @* PRETO *@
+                <div class="historia-cor cor-degrade-preto">
+                    <p>“Preto foi o lugar que um dia lhe tirei, cego, sujo, mergulhado no pecado, alcancei-o com minhas mãos e lhe resgatei das trevas”.</p>
+                </div>
+
+                @* LARANJA - OURO *@
+                <div class="historia-cor cor-degrade-laranja">
+                    <p>“O ouro significa a minha glória e ela resplandecerá no rosto daqueles que abraçarem este ministério”.</p>
+                </div>
+
+                @* BRANCO *@
+                <div class="historia-cor" style="background-color:#ffffff; border: solid 1px #ff6a00;">
+                    <p style="color:#000000;">“Branco é a paz que lhes dou. Não temas, Eu o seguro com as minhas mãos”.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@* CONTATO *@
+<div id="Contato" class="section">
+    <div id="resultadoContato" class="container contato-animacao animated fadeOutDown"></div>
+</div>
+
+@Scripts.Render("~/bundles/Index")
+
+
+

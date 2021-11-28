@@ -1,0 +1,10 @@
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DTO\bin\Debug\DTO.dll
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DTO\bin\Debug\DTO.pdb
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DTO\obj\Debug\DTO.dll
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DTO\obj\Debug\DTO.pdb
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DTO\bin\Debug\DTO.dll
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DTO\bin\Debug\DTO.pdb
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DTO\obj\Debug\DTO.dll
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DTO\obj\Debug\DTO.pdb
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache

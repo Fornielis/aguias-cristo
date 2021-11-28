@@ -1,0 +1,85 @@
+﻿@model DTO.Unidade
+
+@* CONTEUDO RETORNO *@
+<div class="retorno-unidade animated bounceInDown">
+
+    @* TITULO UNIDADE *@
+    <h1><span class="icone-fonte"> </span>@Model.Nome</h1>
+
+    @* INFORMAÇÕES *@
+    <div class="col-sm-6 col-xs-12 dados-unidade">
+        <span>Endereço</span>
+        <h3>@Model.Endereco</h3>
+
+        <span>Cidade</span>
+        <h3>@Model.Cidade</h3>
+
+        <span>Reuniões</span>
+        <h3>@Model.Reunioes</h3>
+
+        @{ // SE UF EXISTE
+            if (!(Model.UF == "N/A"))
+            {
+                <span>Estado</span>
+                    <h3>@Model.UF</h3>
+            }
+        }
+
+        <span>Pais</span>
+        <h3>@Model.Pais</h3>
+
+        @{ // SE TELEFONE EXISTE
+            if (!(Model.Telefone == "N/A" || Model.Telefone == "() -"))
+            {
+                <span>Telefone</span>
+                    <h3>@Model.Telefone</h3>
+            }
+        }
+
+        @{ // SE E-MAIL EXISTE
+            if (!(Model.Email == "N/A"))
+            {
+                <span>E-mail</span>
+                    <h3>@Model.Email</h3>
+            }
+        }
+
+        @{ // SE SITE EXISTE
+            if (!(Model.UrlSite == "N/A"))
+            {
+                // VARIAVEL LINK PARA DIRECIONAMENTO SITE
+                string link = "http://" + Model.UrlSite;
+
+                <span>Site</span>
+                    <a href="@link" target="_blank">
+                        <h3>@Model.UrlSite</h3>
+                    </a>
+            }
+        }
+
+    </div>
+
+    @* MAPA *@
+    <div class="col-sm-6 col-xs-12">
+
+        @* MAPS - GOOGLE *@
+        <iframe src="@Model.UrlGoogleMaps" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        @* BOTÃO VOLTAR *@
+        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoUnidade" href="~/Unidade/ListarUnidadeAtiva">
+            <div class="btn-unidades col-sm-12 cor-degrade-preto">
+                <p>VOLTAR</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // ROLAR PARA SEÇÃO UNIDADES
+    $('.btn-unidades').on('click', function () {
+        window.location.href = '#Unidades';
+    });
+
+</script>

@@ -1,0 +1,304 @@
+/* Responsividade:
+   
+    - Grid Bootstrap:
+        col-xs | até 480px
+        col-sm | maior igual 768px
+        col-md | maior igual 998px
+        col-lg | maior igual 1200px
+-------------------------------------------------- */
+/* CARROSSEL
+-------------------------------------------------- */
+#Home{
+    width: 100%;
+    height:auto;
+    padding-top: 90px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.carousel-inner div img{
+	width: 100%;
+}
+.icone-left,
+.icone-right {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+  margin-top: -20px;
+  color: #f39200;
+  font-size: 150%;
+}
+.icone-left{
+  right: 50%;
+  margin-right: -15px;
+}
+.icone-right{
+  right: 50%;
+  margin-right: -10px;
+}
+.carousel-indicators {
+  	bottom: 0px;
+}
+.carousel-indicators li {
+	background-color: #000000;
+  	border: none;
+}
+.carousel-indicators .active {
+  	background-color: #f39200;
+}
+.item-slide{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.item-slide img{
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+/* UNIDADES
+-------------------------------------------------- */
+#Unidades{
+    width: 100%;
+    height: auto;
+    padding: 90px 0px 90px 0px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO-LARANJA.jpg);
+    overflow: hidden;
+    position: relative;
+}
+.unidades-item{
+    height: auto;
+    overflow: hidden;
+}
+.unidades-item h1{
+    text-align: center;
+    border-bottom: solid 1px #f39200;
+    padding-bottom: 5px;
+    color: #f39200;
+    font-size: 200%;
+}
+.unidades-item img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 90px;
+}
+.btn-unidades{
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0px 10px 0px;
+    border-bottom: solid 1px #f39200;
+    transition: all .4s;
+}
+.btn-unidades:hover{
+    background: #dc8502; 
+    background: -moz-linear-gradient(top, #dc8502 0%, #f39200 100%); 
+    background: -webkit-linear-gradient(top, #dc8502 0%,#f39200 100%); 
+    background: linear-gradient(to bottom, #dc8502 0%,#f39200 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc8502', endColorstr='#f39200',GradientType=0 ); 
+}
+.btn-unidades p{
+    color: #ffffff;
+    font-size: 150%;
+    padding: 0;
+    margin: 0;
+}
+.btn-unidades-voltar{
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0px 10px 0px;
+    border-bottom: solid 2px #000000;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f39200;
+    transition: all .4s;
+}
+.btn-unidades-voltar p{
+    color: #ffffff;
+    font-size: 150%;
+    padding: 0;
+    margin: 0;
+}
+.btn-unidades-voltar:hover{
+    background-color: #000000;
+    border-bottom: solid 2px #f39200;
+}
+iframe{
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+.unidades-informacoes{
+    color: #ffffff;
+    text-align: left;
+    font-size: 150%;
+    margin: 15px;
+    line-height: 120%;
+}
+.btn-unidades-site{
+    height: auto;
+    text-align: center;
+    background-color: #f39200;
+    cursor: pointer;
+    padding: 10px 0px 10px 0px;
+    border-bottom: solid 1px #000000;
+    margin-left: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: all .4s;
+}
+.btn-unidades-site p{
+    color: #ffffff;
+    font-size: 150%;
+    padding: 0;
+    margin: 0;
+}
+.btn-unidades-site:hover{
+    background-color:#000000;
+    border-bottom: solid 1px #f39200;
+}
+
+/* MEDIA QUERY - UNIDADES
+-------------------------------------------------- */
+@media(max-width: 767px)  {
+.mapa{
+    display: none;
+}
+}
+@media(min-width: 0px) and (max-width: 768px) {
+#Unidades{
+    padding: 130px 0px 30px 0px;
+}
+.unidades-item h1{
+    margin: 10px 0px 0px 0px;
+    font-size: 180%;
+}
+.btn-unidades-site{
+    margin-left: 0px;
+}
+}
+
+/* HISTÓRIA
+-------------------------------------------------- */
+#Historia{
+    width: 100%;
+    height: auto;
+    padding: 90px 10px 30px 10px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+#Historia h1{
+    color: #f39200;
+    font-size: 200%;
+    text-align: center;
+}
+.histotia-texto{
+    text-align: left;
+}
+#Historia p{
+    color: #ffffff;
+    font-size: 155%;
+}
+.historia-cor{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 1px #ffffff;
+    margin-bottom: 10px;
+}
+/* MEDIA QUERY - HISTÓRIA
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 768px) {
+#Historia{
+    padding: 120px 10px 30px 10px;
+}
+#Historia h1{
+    font-size: 180%;
+}
+#Historia p{
+    font-size: 125%;
+}
+}
+
+/* CONTATO
+-------------------------------------------------- */
+#Contato{
+    width: 100%;
+    height: auto;
+    padding: 90px 0px 90px 0px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO-LARANJA.jpg);
+}
+#Contato .titulo{
+   border-bottom: solid 1px #f39200;
+   padding-left: 15px;
+   margin-bottom: 20px;
+}
+#Contato .titulo h2{
+   font-size: 150%;
+   color: #ffffff;
+}
+.contato-map{
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.contato-dados{
+    text-align: center;
+    padding: 0px 25px 0px 25px;
+}
+.contato-dados h2{
+    font-size: 200%;
+    color: #c8cb00;
+}
+.contato-formulario{
+    width: 100%;
+}
+.contato-formulario label{
+    color: #ffffff;
+    float: left;
+}
+.contato-formulario input{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.contato-formulario textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+.contato-formulario .btn-formulario-enviar{
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    border-bottom: solid 2px #000000;
+    transition: all .4s;
+}
+.contato-formulario .btn-formulario-enviar:hover{
+    background: #000000;
+    border-bottom: solid 2px #f39200;
+}
+/* MEDIA QUERY - CONTATO
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 767px) {
+#Contato{
+    padding: 120px 0px 45px 0px;
+}
+.contato-map{
+    display: none;
+}
+}
+
+
+

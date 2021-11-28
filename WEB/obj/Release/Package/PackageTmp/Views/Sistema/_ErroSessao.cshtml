@@ -1,0 +1,24 @@
+﻿<div id="conteudo-erro-sistema">
+
+    @* ERRO SESSÃO *@
+    <div id="erro-sistema" class="cor-degrade-preto animated zoomInDown" style="margin-top:100px;">
+        <img src="~/Imagens/LOGO-ATENCAO.png" alt="IMG" />
+
+        <h5>SESSÃO INATIVA</h5>
+        <br />
+        <p>Faça o login para poder navegar pelo portal</p>
+        <br />
+
+        <a href="~/Login/Credenciais"><input class="btn" type="button" value="FAZER LOGIN"></a> 
+    </div>
+
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario()
+    $("#menu-inativo").css("display", "block");
+</script>
+
+
+

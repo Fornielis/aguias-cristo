@@ -1,0 +1,24 @@
+﻿@* RETORNO *@
+<div class="conteudo-retorno animated zoomInDown">
+    <div class="retorno cor-degrade-preto">
+        <img src="~/Imagens/LOGO-OK.png" alt="IMG" />
+
+        <h5>MEMBRO SALVO</h5>
+
+        @* OK *@
+        <input class="btn btn-ok" type="button" value="OK">
+
+        @* NOVA UNIDADE *@
+        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Membros/GravarMembro">
+            <input class="btn btn-novo-membro" type="button" value="SALVAR NOVO MEMBRO">
+        </a>
+
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario();
+    $('.btn-novo-membro').on('click', fecharFormulario);
+    $('.btn-ok').on('click', conteudoRetornoFechar);
+</script>

@@ -1,0 +1,108 @@
+﻿@model DTO.BannerLista
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+
+        @* TARJA SUPERIOR *@
+        <div class="tarja-superior cor-degrade-preto">
+            <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>CONSULTA BANNER</b></h4>
+
+            @* BOTÃO FECHAR *@
+            <div class="btn-sair-formulario"><b>SAIR</b></div>
+        </div>
+
+        @{
+            // MENU UNIDADES
+            // APRESENTADO SOMENTE PARA DIRETORIA OU SUPORTE
+            string perfil = Session["PerfilAcesso"].ToString();
+            if (perfil == "DIR" || perfil == "SUP")
+            {
+                @Html.Partial("_UnidadesRegional")
+            }
+
+            // CAMPO BUSCA
+            if (ViewBag.Pesquisa == true)
+            {
+                @* CAMPO BUSCA *@
+                <div class="campo-busca" style="margin-bottom:30px;">
+                    <form action="~/Banner/PostPesquisarBanner" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" method="post">
+                        <input type="hidden" id="unidade" name="unidade" value="@ViewBag.Unidade" />
+                        <input class="uppercase txt" id="valorInformado" name="valorInformado" type="text" maxlength="100" placeholder="Pesquise pelo Nome" value="" />
+                        <input class="btn" type="submit" value="BUSCAR">
+                    </form>
+                </div>
+            }
+        }
+
+        @* LISTA IMAGENS BANNER *@
+        <div class="conteudo-lista-banner">
+
+            @{// ITEM BANNER
+                foreach (var item in Model)
+                {
+                    //MONTAGEM LINK
+                    string href = Request.Url.Scheme + "://" + Request.Url.Authority + "/Banner/AlterarBanner?idBanner=" + @item.IdBanner;
+
+                    <div class="lista-banner-item" onclick="linkLinha('@href')">
+
+                        @{ // IMAGEM
+                            if (item.Estatus == "ATIVO")
+                            {
+                                <div class="sinalizador"></div>
+                                <img src="@item.base64imagem" alt="IMG-BANNER" />
+                            }
+                            else
+                            {
+                                <img src="@item.base64imagem" alt="IMG-BANNER" style="opacity:.5" />
+                            }
+                        }
+
+                        @* NOME *@
+                        <div class="campo campo-100 campo-padding">
+                            <label>NOME</label>
+                            <input value="@item.Nome" readonly="readonly" />
+                        </div>
+                    </div>
+
+                            }
+            }
+
+        </div>
+
+        @{ //RETORNO - PARTIAL VIEW
+
+            // DELETAR
+            if (ViewBag.Retorno == "DELETAR")
+            {
+                @Html.Partial("_RetornoDeletarBanner")
+            }
+            // GRAVAR
+            if (ViewBag.Retorno == "GRAVAR")
+            {
+                @Html.Partial("_RetornoGravarBanner")
+            }
+            // ALTERAR
+            if (ViewBag.Retorno == "ALTERAR")
+            {
+                @Html.Partial("_RetornoAlterarBanner")
+            }
+        }
+
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    $('#NACIONAL').css('display', 'none');
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('.lista-banner-item').on('click', function () {
+        abrirTelaProcess();
+        fecharFormulario();
+    });
+
+</script>
+

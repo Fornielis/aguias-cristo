@@ -1,0 +1,100 @@
+﻿@model DTO.UsuarioLogin
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+
+    @* METAS - COMPARTILHAMENTO *@
+    <meta property="og:url" content="https://portal.mcaguiassp.com.br" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portal | Regional São Paulo" />
+    <meta property="og:description" content="Área exclusiva para gestão por parte dos administradores do Moto Clube." />
+    <meta property="og:image" content="https://www.mcaguiassp.com.br/public/img/miniatura-portal-800x420.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+
+    <title>Login</title>
+    <link href="~/Imagens/AguiasCristo_ICO.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+    @Styles.Render("~/Content/loginInicio")
+</head>
+<body>
+
+    <div id="login">
+
+        @* FORMULÁRIO DE LOGIN *@
+        <form class="cor-degrade-preto animated zoomInDown" action="~/Login/Credenciais" method="post">
+            <img src="~/Imagens/LOGIN-LOGO.png" alt="LOGO" />
+
+            <label><span class="icone-fonte"></span>Usuário</label><span class="field-validation-valid mensagem-erro" data-valmsg-for="Usuario" data-valmsg-replace="true"></span>
+            <input class="text-box single-line mask-cpf" data-val="true" data-val-required="DIGITE SEU USUÁRIO" id="Usuario" name="Usuario" type="text" value="" /><br />
+
+            <label><span class="icone-fonte"></span>Senha</label><span class="field-validation-valid mensagem-erro" data-valmsg-for="Senha" data-valmsg-replace="true"></span>
+            <input data-val="true" data-val-required="DIGITE SUA SENHA" id="Senha" name="Senha" type="password" /><br />
+
+            <input class="btn" type="submit" value="Entrar">
+
+            @*<a href="#" style="margin-left: 85px;"><span>&there4;</span> Esqueci a Senha</a>*@
+        </form>
+
+        @* MENSAGEM ERRO FORMATO DE TELA *@
+        <div id="erro-tela" class="animated swing">
+            <img src="~/Imagens/ErroFormatoTela.png" alt="IMG-ERRO" />
+            <a href="~/Home/RegionalSP"><input class="btn cor-degrade-preto" type="button" value="Voltar"></a>
+        </div>
+
+        @{
+            if (ViewBag.Erro != null)
+            {
+                //ERRO LOGIN
+                <div id="erro-login" class="cor-degrade-preto animated zoomInDown">
+                    <img src="~/Imagens/LOGO-ERRO.png" alt="IMG" />
+
+                    @{
+                        //CAMPOS USUSARIO E SENHA VAZIOS
+                        if (ViewBag.Erro == "CamposNull")
+                        {
+                            <h5>OBRIGATÓRIO</h5>
+                            <br />
+                                    <p>Campo de USUÀRIO e SENHA são obrigatórios para obter acesso</p>
+                                    <br />
+                        }
+
+                        //CAMPOS USUSARIO E SENHA VAZIOS
+                        if (ViewBag.Erro == "LogInnvalido")
+                        {
+                            <h5>USUÁRIO NÃO EXISTE</h5>
+                            <br />
+                                    <p>Verifique se o USUÀRIO e SENHA fornecidos estão corretos.</p>
+                                    <br />
+                        }
+                        //NÚMERO TENTATIVAS
+                        if (ViewBag.Erro == "NumeroTentativas")
+                        {
+                            <h5>TENTATIVAS</h5>
+                            <br />
+                                    <p>Você excedeu o número de tentativas. Aguarde 5 minutos.</p>
+                                    <br />
+                        }
+                    }
+                    <input class="btn" type="button" value="OK">
+                </div>
+                        }
+        }
+    </div>
+    @Scripts.Render("~/bundles/loginInicio")
+
+    @* FUNÇÕES QUE SERÃO EXECUTADAS *@
+    <script type="text/javascript">
+        mascarasTestos();
+    </script>
+
+</body>
+</html>
+
+
+

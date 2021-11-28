@@ -1,0 +1,524 @@
+/* Responsividade:
+   
+    - Grid Bootstrap:
+        col-xs | até 480px
+        col-sm | maior igual 768px
+        col-md | maior igual 998px
+        col-lg | maior igual 1200px
+-------------------------------------------------- */
+
+/* TELA ERRO INDEX
+-------------------------------------------------- */
+#tela-erro-index{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    text-align: center;
+    padding: 20%;
+}
+
+    #tela-erro-index h3{
+        color: #ffffff;
+        font-size: 150%;
+    }
+
+/* CARROSSEL
+-------------------------------------------------- */
+#Home {
+    width: 100%;
+    height: auto;
+    padding-top: 90px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+    #Home .container {
+        width: 80%;
+    }
+
+#carrossel-vazio {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+    #carrossel-vazio img {
+        width: 100%;
+        height: auto;
+    }
+
+.carousel-inner div img {
+    width: 100%;
+}
+
+.icone-left,
+.icone-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    margin-top: -20px;
+    color: #f39200;
+    font-size: 150%;
+}
+
+.icone-left {
+    right: 50%;
+    margin-right: -15px;
+}
+
+.icone-right {
+    right: 50%;
+    margin-right: -10px;
+}
+
+.carousel-indicators {
+    bottom: 0px;
+}
+
+    .carousel-indicators li {
+        background-color: #000000;
+        border: none;
+    }
+
+    .carousel-indicators .active {
+        background-color: #f39200;
+    }
+
+.item-slide {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+    .item-slide img {
+        width: 100%;
+        height: auto;
+        z-index: 0;
+    }
+
+/* MEDIA QUERY - CARROSSEL
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 768px) {
+    #Home .container {
+        width: auto;
+    }
+}
+
+/* UNIDADES
+-------------------------------------------------- */
+#Unidades {
+    width: 100%;
+    height: auto;
+    padding: 90px 0px 90px 0px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO-LARANJA.jpg);
+    overflow: hidden;
+    position: relative;
+}
+
+    #Unidades img {
+        width: 100%;
+        height: auto;
+    }
+
+    #Unidades h2 {
+        text-align: center;
+        color: #ffffff;
+        font-size: 200%;
+        line-height: 140%;
+        margin: 0px 20px 0px 20px;
+    }
+
+.destaque {
+    margin-top: 30px;
+    border: solid 1px #f39200;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,.3);
+    padding: 0px 40px 25px 40px;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.8);
+}
+
+.sede {
+    width: 100%;
+    margin: 20px auto;
+    border-top: solid 3px #f39200;
+    border-bottom: solid 3px #f39200;
+    border-radius: 15px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    padding: 0px 20px 40px 20px;
+    overflow: hidden;
+    text-align: center;
+    color: #ffffff;
+    transition: all .4s;
+}
+
+    .sede .titulo-sede {
+        font-size: 180%;
+    }
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+
+.unidades-item {
+    height: auto;
+    padding: 0px 40px 0px 40px;
+    overflow: hidden;
+}
+
+    .unidades-item section {
+        width: auto;
+        height: auto;
+        padding: 2px 0px 12px 0px;
+        border-bottom: solid 1px #f39200;
+    }
+
+        .unidades-item section h1 {
+            text-align: center;
+            color: #f39200;
+            font-size: 180%;
+        }
+
+    .unidades-item h1 span {
+        font-size: 100%;
+    }
+
+    .unidades-item img {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-top: 90px;
+    }
+
+.btn-unidades {
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0px 10px 0px;
+    border-bottom: solid 1px #f39200;
+    font-size: 95%;
+    transition: all .4s;
+}
+
+    .btn-unidades:hover {
+        background: #dc8502;
+        background: -moz-linear-gradient(top, #dc8502 0%, #f39200 100%);
+        background: -webkit-linear-gradient(top, #dc8502 0%,#f39200 100%);
+        background: linear-gradient(to bottom, #dc8502 0%,#f39200 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc8502', endColorstr='#f39200',GradientType=0 );
+    }
+
+    .btn-unidades p {
+        color: #ffffff;
+        font-size: 150%;
+        padding: 0;
+        margin: 0;
+    }
+
+.retorno-unidade {
+    width: 100%;
+    height: auto;
+}
+
+.dados-unidade {
+    height: auto;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 15px;
+    border-bottom: solid 1px #f39200;
+    border-top: solid 1px #f39200;
+    padding: 20px;
+    margin: 5px 0px 10px 0px;
+    font-size: 100%;
+}
+
+.retorno-unidade iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    margin: 5px 0px 10px 0px;
+    overflow: hidden;
+}
+
+.retorno-unidade h1 {
+    text-align: center;
+    color: #f39200;
+    font-size: 200%;
+    border-bottom: solid 1px #f39200;
+    padding: 20px;
+}
+
+.retorno-unidade span {
+    font-size: 100%;
+}
+
+.retorno-unidade div h3 {
+    color: #ffffff;
+    font-size: 170%;
+    margin: 0px 0px 20px 0px;
+}
+
+.retorno-unidade div span {
+    color: #f39200;
+    font-size: 100%;
+    line-height: 0%;
+}
+
+/* MEDIA QUERY - UNIDADES
+-------------------------------------------------- */
+@media(max-width: 767px) {
+    .mapa {
+        display: none;
+    }
+}
+
+@media(min-width: 0px) and (max-width: 768px) {
+    #Unidades {
+        padding: 130px 0px 30px 0px;
+    }
+
+    .sede .titulo-sede {
+        font-size: 130%;
+    }
+
+    .destaque {
+        padding: 0px 20px 20px 20px;
+    }
+
+    .br-celular {
+        display: none;
+    }
+}
+
+/* HISTÓRIA
+-------------------------------------------------- */
+#Historia {
+    width: 100%;
+    height: auto;
+    padding: 90px 10px 30px 10px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+    #Historia h1 {
+        color: #f39200;
+        font-size: 190%;
+        text-align: center;
+    }
+
+.histotia-texto {
+    text-align: left;
+}
+
+#Historia p {
+    color: #ffffff;
+    font-size: 135%;
+}
+
+.historia-cor {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: solid 1px #ffffff;
+    margin-bottom: 10px;
+}
+/* MEDIA QUERY - HISTÓRIA
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 768px) {
+    #Historia {
+        padding: 120px 10px 30px 10px;
+    }
+
+        #Historia h1 {
+            font-size: 180%;
+        }
+
+        #Historia p {
+            font-size: 125%;
+        }
+}
+
+/* CONTATO
+-------------------------------------------------- */
+.box-duvidas {
+    height: auto;
+    margin: 0 auto;
+}
+
+.box-informe {
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+    .box-informe section {
+        width: 100%;
+        height: auto;
+        background-color: rgba(0,0,0,.5);
+        border-radius: 15px;
+        border-bottom: solid 3px #f39200;
+        border-top: solid 3px #f39200;
+        padding: 20px;
+    }
+
+#Contato {
+    width: 100%;
+    height: auto;
+    padding: 90px 0px 90px 0px;
+    margin-bottom: -20px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO-LARANJA.jpg);
+}
+
+    #Contato img {
+        width: 100%;
+        height: auto;
+    }
+
+    #Contato h1 {
+        text-align: center;
+        color: #f39200;
+        font-size: 200%;
+        border-bottom: solid 1px #f39200;
+        padding: 20px;
+    }
+
+    #Contato h2 {
+        text-align: center;
+        color: #f39200;
+        font-size: 200%;
+        border-top: solid 1px #f39200;
+        border-bottom: solid 1px #f39200;
+        padding: 5px 0px 10px 0px;
+    }
+
+    #Contato h4 {
+        text-align: center;
+        font-size: 300%;
+        margin-top: 20px;
+    }
+
+    #Contato h3 {
+        text-align: center;
+        color: #ffffff;
+        font-size: 150%;
+    }
+
+    #Contato h5 {
+        text-align: center;
+        color: #f39200;
+        font-size: 110%;
+    }
+
+    #Contato .box-mapa {
+        height: auto;
+        margin: 0 auto;
+    }
+
+        #Contato .box-mapa img {
+            margin-top: 10px;
+            margin-top: 20px;
+        }
+
+        #Contato .box-mapa iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin: 12px 0px -8px 0px;
+        }
+
+    #Contato form {
+        width: 100%;
+        height: auto;
+    }
+
+        #Contato form label {
+            font-size: 90%;
+            color: #ffffff;
+            float: left;
+        }
+
+        #Contato form span {
+            font-size: 110%;
+            color: #f39200;
+            float: right;
+        }
+
+        #Contato form .input-txt {
+            width: 100%;
+            height: 40px;
+            font-size: 120%;
+            padding: 0px 15px 0px 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: solid 5px #f39200;
+            border-right: solid 5px #f39200;
+        }
+
+        #Contato form textarea {
+            width: 100%;
+            height: 120px;
+            font-size: 120%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: solid 5px #f39200;
+            border-right: solid 5px #f39200;
+        }
+
+.btn-form-enviar {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 0px 10px 0px;
+    border: solid 1px #000000;
+    border-bottom: solid 2px #f39200;
+    font-size: 120%;
+    color: #ffffff;
+    transition: all .4s;
+}
+
+    .btn-form-enviar:hover {
+        background: #dc8502;
+        background: -moz-linear-gradient(top, #dc8502 0%, #f39200 100%);
+        background: -webkit-linear-gradient(top, #dc8502 0%,#f39200 100%);
+        background: linear-gradient(to bottom, #dc8502 0%,#f39200 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc8502', endColorstr='#f39200',GradientType=0 );
+    }
+
+    .btn-form-enviar p {
+        color: #ffffff;
+        font-size: 150%;
+        padding: 0;
+        margin: 0;
+    }
+
+/* MEDIA QUERY - CONTATO
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 767px) {
+    .box-informe {
+        height: auto;
+        margin: 0 auto;
+        padding: 0px;
+    }
+
+    #Contato h1 {
+        font-size: 160%;
+        border-bottom: none;
+    }
+
+    #Contato h2 {
+        font-size: 145%;
+    }
+}
+
+@media(min-width: 0px) and (max-width: 1199px) {
+    .qrcode{
+        display: none;
+    }
+}

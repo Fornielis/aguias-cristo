@@ -1,0 +1,85 @@
+﻿/* Responsividade:
+   
+    - Grid Bootstrap:
+        col-xs | até 480px
+        col-sm | maior igual 768px
+        col-md | maior igual 998px
+        col-lg | maior igual 1200px
+-------------------------------------------------- */
+#evento {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+    padding-top: 115px;
+}
+
+    #evento h1 {
+        color: #f39200;
+        font-size: 150%;
+        float: left;
+    }
+
+    #evento select {
+        width: 100%;
+        height: 40px;
+        border-radius: 10px;
+        padding-left: 10px;
+        border-right: solid 2px #f39200;
+        border-left: solid 2px #f39200;
+        float: right;
+        margin-top: 7px;
+    }
+
+.evento-item {
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+    .evento-item section {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background-color: rgba(0,0,0,.5);
+        border-radius: 15px;
+        overflow: hidden;
+        border-top: solid 2px #f39200;
+        border-bottom: solid 2px #f39200;
+        cursor: pointer;
+        transition: all .4s;
+    }
+
+        .evento-item section:hover {
+            background-color: rgba(0,0,0,.8);
+        }
+
+    .evento-item img {
+        height: auto;
+        float: none;
+        padding: 0px;
+    }
+
+.evento-informacoes {
+    height: auto;
+}
+
+    .evento-informacoes h2{
+        min-height: 40px;
+        color: #f39200;
+        text-align: center;
+        border-bottom: solid 1px #f39200;
+        padding-bottom: 10px;
+        font-size: 120%;
+        overflow: hidden;
+    }
+
+    .evento-informacoes p{
+        color: #f39200;
+    }
+
+        .evento-informacoes p span{
+            color: #ffffff;
+            font-size: 120%;
+        }
+

@@ -1,0 +1,210 @@
+﻿@model DTO.Unidade
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+        <form action="~/Unidade/PostAlterarUnidade" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" method="post">
+
+            @Html.ValidationSummary(true)
+
+            @* TARJA SUPERIOR *@
+            <div class="tarja-superior cor-degrade-preto">
+                <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>ALTERA UNIDADE</b></h4>
+
+                @* BOTÃO FECHAR *@
+                <div class="btn-sair-formulario"><b>SAIR</b></div>
+            </div>
+
+            @* CAMPOS FORMULÁRIO *@
+            <div class="campos-formulario">
+
+                @* ID *@
+                <input class="text-box single-line" data-val="true" data-val-required="" name="IdUnidade" type="hidden" value="@Model.IdUnidade" />
+
+                @* NOME *@
+                <div class="campo campo-40 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="Nome" data-valmsg-replace="true"></span><label>NOME UNIDADE</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Nome" name="Nome" type="text" maxlength="100" value="@Model.Nome" />
+                </div>
+
+                @* ENDEREÇO *@
+                <div class="campo campo-60">
+                    <span class="field-validation-valid" data-valmsg-for="Endereco" data-valmsg-replace="true"></span><label>ENDEREÇO</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Endereco" name="Endereco" type="text" value="@Model.Endereco" />
+                </div>
+
+                @* ESTATUS *@
+                <div class="campo campo-25 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="Estatus" data-valmsg-replace="true"></span><label>ESTATUS</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Estatus" name="Estatus">
+                        <option value="@Model.Estatus">@Model.Estatus</option>
+                        <option value="">---------------------------</option>
+                        <option value="UNIDADE">UNIDADE</option>
+                        <option value="NÚCLEO">NÚCLEO</option>
+                    </select>
+                </div>
+
+                @* PAIS *@
+                <div id="campoPais" class="campo campo-25 campo-padding" onchange="ocultarUF()">
+                    <span class="field-validation-valid" data-valmsg-for="Pais" data-valmsg-replace="true"></span><label>PAIS</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Pais" name="Pais">
+                        <option value="@Model.Pais" selected>@Model.Pais</option>
+                        <option value="">---------------------------</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Estados Unidos">Estados Unidos</option>
+                        <option value="Japão">Japão</option>
+                        <option value="México">México</option>
+                        <option value="Paraguai">Paraguai</option>
+                        <option value="Portugal ">Portugal </option>
+                        <option value="Uruguai">Uruguai</option>
+                        <option value="Venezuela ">Venezuela </option>
+                    </select>
+                </div>
+
+                @* UF *@
+                <div id="campoUF" class="campo campo-25 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="UF" data-valmsg-replace="true"></span><label>UF</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="UF" name="UF">
+                        @{
+                            if (Model.UF == "N/A")
+                            {
+                                <option value="">@Model.UF</option>
+                            }
+                            else
+                            {
+                                <option value="@Model.UF">@Model.UF</option>
+                            }
+                        }                        
+                        <option value="">---------------------------</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+
+                @* CIDADE *@
+                <div id="campoCidade" class="campo campo-25">
+                    <span class="field-validation-valid" data-valmsg-for="Cidade" data-valmsg-replace="true"></span><label>CIDADE</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Cidade" name="Cidade" maxlength="30" type="text" value="@Model.Cidade" />
+                </div>
+
+                @* TELEFONE *@
+                <div class="campo campo-25 campo-padding">
+                    <label>TELEFONE</label>
+                    <input class="uppercase txt" id="Telefone" name="Telefone" maxlength="30" type="text" value="@Model.Telefone" />
+                </div>
+
+                @* E-MAIL *@
+                <div class="campo campo-25 campo-padding">
+                    <label>E-MAIL</label>
+                    <input class="txt" id="Email" name="Email" maxlength="100" type="text" value="@Model.Email" />
+                </div>
+
+                @* REUNIÕES *@
+                <div class="campo campo-25 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="Reunioes" data-valmsg-replace="true"></span><label>REUNIÕES</label>
+                    <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Reunioes" name="Reunioes" type="text" value="@Model.Reunioes" />
+                </div>
+
+                @* REGIONAL *@
+                <div class="campo campo-25">
+                    <label>REGIONAL</label>
+                    <input id="Regional" name="Regional" type="text" value="@Model.Regional" />
+                </div>
+
+                @* URL - SITE *@
+                <div class="campo campo-100">
+                    <label>URL SITE</label>
+                    <input class="txt" id="UrlSite" name="UrlSite" type="text" value="@Model.UrlSite" />
+                </div>
+
+                @* URL - GOOGLE MAPS *@
+                <div class="campo campo-100">
+                    <span class="field-validation-valid" data-valmsg-for="UrlGoogleMaps" data-valmsg-replace="true"></span><label>URL GOOGLE MAPS</label>
+                    <input class="text-box single-line txt" data-val="true" data-val-required="OBRIGATÓRIO" id="UrlGoogleMaps" name="UrlGoogleMaps" type="text" value="@Model.UrlGoogleMaps" />
+                </div>
+
+                @* BOTÕES *@
+                <div class="campo-btn cor-degrade-cinza campo-100">
+                    <input class="btn btn-margem-right campo-30" id="btn-deletar" type="button" value="DELETAR">
+                    <input class="btn campo-30" type="submit" value="ALTERAR">
+                </div>
+            </div>
+        </form>
+
+        @* AVISO EXCLUSÃO *@
+        <div id="aviso-deletar" class="conteudo-retorno animated">
+            <div class="retorno cor-degrade-preto">
+                <img src="~/Imagens/LOGO-ATENCAO.png" alt="IMG" />
+
+                <h5>TEM CERTEZA QUE DESEJA EXCLUIR?</h5>
+
+                @* SIM *@
+                <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Unidade/DeleatarUnidade?idUnidade=@Model.IdUnidade">
+                    <input class="btn" type="button" value="SIM">
+                </a>
+
+                @* NÃO *@
+                <input class="btn" id="deletar-nao" type="button" value="NÃO">
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    mascarasTestos();
+    fecharTelaProcess();    
+    $("#progress").css('display', 'none');
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('#btn-deletar').on('click', avisoDeletarAbrir);
+    $('#deletar-nao').on('click', avisoDeletarFechar);
+
+    // VALIDAÇÃO
+    jQuery.validator.unobtrusive.parse();
+    jQuery.validator.unobtrusive.parse("#form");
+
+</script>
+
+@{ // EXECUTA FUNÇÃO CASO PAIS SEJA DIFERENTE DE BRASIL
+    if (!(Model.Pais == "BRASIL"))
+    {
+        <script type="text/javascript">
+            ocultarUF();
+        </script>      
+    }
+}

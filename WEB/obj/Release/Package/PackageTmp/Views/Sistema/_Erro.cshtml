@@ -1,0 +1,37 @@
+﻿<div id="conteudo-erro-sistema" class="animated zoomInDown">
+
+    @* ERRO SESSÃO *@
+    <div id="erro-sistema" class="cor-degrade-preto animated" style="margin-top:100px;">
+        <img src="~/Imagens/LOGO-ERRO.png" alt="IMG" />
+
+        <h5>OPS!</h5>
+        <br />
+        @{ // ERRO DE SISTEMA
+            if (ViewBag.Retorno != null && ViewBag.Retorno > 0)
+            {
+                <p>
+                    Ocorreu um erro no sistema, nossa equipe de TI foi notificada e entrará em contato. <br />
+                    Número protocólo: @ViewBag.Retorno
+                </p>
+            }
+            // ERRO IMPREVISTO
+            else
+            {
+                <p>
+                    Ocorreu um erro, por favor entre em contato com nossa equipe de TI através do e-mail suporte@mcaguiassp.com.br
+                </p>
+            }
+        }
+
+        <input class="btn" type="button" value="OK">
+    </div>
+
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario()
+    $('.btn').on('click', function () {
+        fecharFormulario();
+    });
+</script>

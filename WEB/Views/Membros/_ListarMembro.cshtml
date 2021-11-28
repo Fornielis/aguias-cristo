@@ -1,0 +1,139 @@
+﻿@model DTO.MembroLista
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+
+        @* TARJA SUPERIOR *@
+        <div class="tarja-superior cor-degrade-preto">
+            <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>CONSULTA MEMBROS</b></h4>
+
+            @* BOTÃO FECHAR *@
+            <div class="btn-sair-formulario"><b>SAIR</b></div>
+        </div>
+
+        @{
+            // MENU UNIDADES
+            // APRESENTADO SOMENTE PARA DIRETORIA OU SUPORTE
+            string perfil = Session["PerfilAcesso"].ToString();
+            if (perfil == "DIR" || perfil == "SUP")
+            {
+                @Html.Partial("_UnidadesRegional")
+            }
+
+            // CAMPO BUSCA
+            if (ViewBag.Pesquisa == true)
+            {
+                <div class="campo-busca">
+                    <form action="~/Membros/PostPesquisarMembro" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" method="post">
+                        <input type="hidden" id="unidade" name="unidade" value="@ViewBag.Unidade" />
+                        <input class="uppercase txt" id="valorInformado" name="valorInformado" type="text" maxlength="50" placeholder="Pesquise pelo Nome" value="" />
+                        <input class="btn" type="submit" value="BUSCAR">
+                    </form>
+                </div>
+
+                // TABELA UNIDADES
+                <div class="conteudo-tabela">
+                    <table class="">
+                        <thead class="cor-degrade-preto">
+                            <tr>
+                                <th class="radius-top-left">CPF</th>
+                                <th>NOME</th>
+                                <th>APELIDO</th>
+                                <th>CARTEIRINHA</th>
+                                <th>PATCH</th>
+                                <th class="radius-top-right">BRASÃO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                    //MONTAGEM LINK
+                                    string href = Request.Url.Scheme + "://" + Request.Url.Authority + "/Membros/AlterarMembro?CPF=" + item.CPF;
+
+                                    <tr class="linha" onclick="linkLinha('@href')">
+                                        <td>@item.CPF</td>
+                                        <td class="pading-left">@item.Nome</td>
+
+                                        @{ // TRATAMENTO CAMPO APELIDO
+                                            if (item.Apelido == "" || item.Apelido == "N/A")
+                                            {
+                                                <td class="icone-fonte pading-left"></td>
+                                            }
+                                            else
+                                            {
+                                                <td class="pading-left">@item.Apelido</td>
+                                            }
+                                        }
+                                        @{ // TRATAMENTO CAMPO CARTEIRINHA
+                                            if (item.Carteirinha == "" || item.Carteirinha == "N/A")
+                                            {
+                                                <td class="icone-fonte"></td>
+                                            }
+                                            else
+                                            {
+                                                <td>@item.Carteirinha</td>
+                                            }
+                                        }
+                                        @{ // TRATAMENTO CAMPO PATCH
+                                            if (item.Patch == "" || item.Patch == "N/A" || item.Patch == "//")
+                                            {
+                                                <td class="icone-fonte"></td>
+                                            }
+                                            else
+                                            {
+                                                <td>@item.Patch</td>
+                                            }
+                                        }
+                                        @{ // TRATAMENTO CAMPO BRASÃO
+                                            if (item.Brasao == "" || item.Brasao == "N/A" || item.Brasao == "//")
+                                            {
+                                                <td class="icone-fonte"></td>
+                                            }
+                                            else
+                                            {
+                                                <td>@item.Brasao</td>
+                                            }
+                                        }
+                                    </tr>
+                                            }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                                            }
+        }
+
+        @{ //RETORNO - PARTIAL VIEW
+
+            // DELETAR
+            if (ViewBag.Retorno == "DELETAR")
+            {
+                @Html.Partial("_RetornoDeletarMembro")
+            }
+            // GRAVAR
+            if (ViewBag.Retorno == "GRAVAR")
+            {
+                @Html.Partial("_RetornoGravarMembro")
+            }
+            // ALTERAR
+            if (ViewBag.Retorno == "ALTERAR")
+            {
+                @Html.Partial("_RetornoAlterarMembro")
+            }
+        }
+
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    // INTERAÇÕES
+    abrirFormulario();
+    $('#NACIONAL').css('display', 'none');
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('.linha').on('click', fecharFormulario);
+
+</script>
+

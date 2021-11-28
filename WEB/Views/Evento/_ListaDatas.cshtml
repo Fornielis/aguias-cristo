@@ -1,0 +1,34 @@
+﻿@* LISTA DE DATAS CADASTRADAS *@
+<div class="campos-formulario">
+
+    @* DATA *@
+    <div class="box-resultado-datas">
+
+        @{
+            foreach (var item in ViewBag.Datas)
+            {
+                @* BOX DATAS *@
+                <div class="box">
+
+                    @* CAMPO DATA *@
+                    <div class="campo-resultado-datas">
+                        <span>@item.DataEvento</span>
+                    </div>
+
+                    @* BOTÃO DELETAR *@
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#datasEscolhidas" href="~/Evento/DeletarEventoData?IdData=@item.IdData&IdEvento=@item.IdEvento">
+                        <div class="btn-resultado-datas">
+                            <span class="icone-fonte"></span>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    // INTERAÇÕES
+    limparTextos();
+</script>

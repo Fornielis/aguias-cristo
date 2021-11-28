@@ -1,0 +1,13 @@
+﻿/* Responsividade:
+   
+    - Grid Bootstrap:
+        col-xs | até 480px
+        col-sm | maior igual 768px
+        col-md | maior igual 998px
+        col-lg | maior igual 1200px
+-------------------------------------------------- */
+#evento{
+    width: 100%;
+    height: 800px;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+}

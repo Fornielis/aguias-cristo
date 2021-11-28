@@ -1,0 +1,14 @@
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\bin\Release\DAL.dll.config
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\bin\Release\DAL.dll
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\bin\Release\DAL.pdb
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\bin\Release\MySql.Data.xml
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\obj\Release\DAL.dll
+D:\_WILSON\_PROJETOS\_C#\AguiasCristo_MC\SISTEMA\DAL\obj\Release\DAL.pdb
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\bin\Release\DAL.dll.config
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\bin\Release\DAL.dll
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\bin\Release\DAL.pdb
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\bin\Release\MySql.Data.xml
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\obj\Release\DAL.dll
+D:\_DEVELOPER\Aplicacoes\AguiasCristo_MC\SISTEMA\DAL\obj\Release\DAL.pdb

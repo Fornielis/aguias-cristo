@@ -1,0 +1,126 @@
+﻿@model DTO.Evento
+@* CAMPO DATAS *@
+<div id="retorno-data-evento" class="animated fadeInDown">
+
+    @* TARJA SUPERIOR *@
+    <div class="tarja-superior cor-degrade-preto">
+        <h4><span class="animated infinite bounceInLeft icone-fonte"></span><b>@Model.Descricao.ToUpper()</b></h4>
+
+        @* BOTÃO FECHAR *@
+        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventos">
+            <div class="btn-sair-formulario"><b>FINALIZAR</b></div>
+        </a>
+    </div>
+
+    @* FORMULÁRIO DATAS *@
+    <div class="box-conteudo-50">
+        <form action="~/Evento/PostGravarEventoData" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#datasEscolhidas" id="formDias" method="post">
+            @* TITULO *@
+            <h3>DATAS EVENTO</h3>
+
+            @* RETORNO LISTA DADOS *@
+            <div id="datasEscolhidas"></div>
+
+            @* CAMPOS FORMULÁRIO *@
+            <div class="campos-formulario">
+
+                @{
+                    string perfil = Session["PerfilAcesso"].ToString();
+                    if (perfil == "DIR" || perfil == "SUP")
+                    {
+                        // ID EVENTO
+                        <input type="hidden" id="IdEvento" name="IdEvento" value="@ViewBag.IdEvento" />
+
+                        // DATA
+                        <div class="campo campo-padding campo-50">
+                            <span class="field-validation-valid" data-valmsg-for="DataEvento" data-valmsg-replace="true"></span><label>DATA</label>
+                            <input class="text-box single-line uppercase mask-data txt" data-val="true" data-val-required="OBRIGATÓRIO" id="DataEvento" name="DataEvento" type="text" minlength="10" value="" />
+                        </div>
+
+                        // RESERVA DATA
+                        <div class="campo campo-50">
+                            <span class="field-validation-valid" data-valmsg-for="Reservado" data-valmsg-replace="true"></span><label>RESERVAR</label>
+                            <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Reservado" name="Reservado">
+                                <option value="NÃO">NÃO</option>
+                                <option value="SIM">SIM</option>
+                            </select>
+                        </div>
+                    }
+                    else
+                    {
+                        // ID EVENTO
+                        <input type="hidden" id="IdEvento" name="IdEvento" value="@ViewBag.IdEvento" />
+
+                        // DATA
+                        <div class="campo campo-100">
+                            <span class="field-validation-valid" data-valmsg-for="DataEvento" data-valmsg-replace="true"></span><label>DATA</label>
+                            <input class="text-box single-line uppercase mask-data txt" data-val="true" data-val-required="OBRIGATÓRIO" id="DataEvento" name="DataEvento" type="text" minlength="10" value="" />
+                        </div>
+
+                       <input type="hidden" id="Reservado" name="Reservado" value="NÃO" />
+                    }
+                }
+
+                @* BOTÕES *@
+                <div class="campo-btn cor-degrade-cinza campo-100">
+                    <input class="btn campo-60" type="submit" value="ADICIONAR DATA">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @* FORMULÁRIO DARA DIVULGAÇÃO *@
+    <div class="box-conteudo-50">
+        <form action="~/Evento/PostGravarMesDivulgacao" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#MesDivulgacao" id="formMes" method="post">
+            @* TITULO *@
+            <h3>MESES DIVULGAÇÃO</h3>
+
+            @* RETORNO LISTA DADOS *@
+            <div id="MesDivulgacao"></div>
+
+            @* CAMPOS FORMULÁRIO *@
+            <div class="campos-formulario">
+
+                @*ID EVENTO*@
+                <input type="hidden" id="IdEvento" name="IdEvento" value="@ViewBag.IdEvento" />
+
+                @* MESES *@
+                <div class="campo campo-100 campo-padding">
+                    <span class="field-validation-valid" data-valmsg-for="MesDivulgacao" data-valmsg-replace="true"></span><label>DIVULGAÇÃO</label>
+                    <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="MesDivulgacao" name="MesDivulgacao">
+                        <option value="">ESCOLHA</option>
+                        <option value="JANEIRO">JANEIRO</option>
+                        <option value="FEVEREIRO">FEVEREIRO</option>
+                        <option value="MARÇO">MARÇO</option>
+                        <option value="ABRIL">ABRIL</option>
+                        <option value="MAIO">MAIO</option>
+                        <option value="JUNHO">JUNHO</option>
+                        <option value="JULHO">JULHO</option>
+                        <option value="AGOSTO">AGOSTO</option>
+                        <option value="SETEMBRO">SETEMBRO</option>
+                        <option value="OUTUBRO">OUTUBRO</option>
+                        <option value="NOVEMBRO">NOVEMBRO</option>
+                        <option value="DEZEMBRO">DEZEMBRO</option>
+                    </select>
+                </div>
+
+                @* BOTÕES *@
+                <div class="campo-btn campo-btn-datas-gravar cor-degrade-cinza campo-100">
+                    <input class="btn campo-60" type="submit" value="ADICIONAR MÊS">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    // INTERAÇÕES
+    mascarasTestos();
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+        
+    // VALIDAÇÃO
+    jQuery.validator.unobtrusive.parse();
+    jQuery.validator.unobtrusive.parse("#formDias");
+    jQuery.validator.unobtrusive.parse("#formMes");
+</script>

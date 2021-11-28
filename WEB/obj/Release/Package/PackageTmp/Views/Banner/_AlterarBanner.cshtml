@@ -1,0 +1,133 @@
+﻿@model DTO.Banner
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+
+        @* TARJA SUPERIOR *@
+        <div class="tarja-superior cor-degrade-preto">
+            <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>ALTERAR BANNER</b></h4>
+
+            @* BOTÃO FECHAR *@
+            <div class="btn-sair-formulario"><b>SAIR</b></div>
+        </div>
+
+        @* FORMULÁRIO CADASTRO *@
+        <form action="~/Banner/PostAlterarBanner" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" enctype="multipart/form-data" method="post">
+            <div class="campos-formulario">
+
+                @* IMAGEM *@
+                <div class="box-conteudo-60">
+                    <div class="campo-arquivo">
+                        <div>
+                            <input type="file" accept="image/jpeg" id="arquivo" value="" onchange="carregarImagem()" />
+                            <img src="@Model.base64imagem" alt="IMG-FUNDO" id="imagem" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-conteudo-40">
+
+                    @* ID *@
+                    <input class="text-box single-line" data-val="true" data-val-required="" name="IdBanner" type="hidden" value="@Model.IdBanner" />
+
+                    @* CAMINHO IMAGEM *@
+                    <div class="campo campo-100">
+                        <span class="field-validation-valid" data-valmsg-for="base64imagem" data-valmsg-replace="true"></span><label>CÓDIGO IMAGEM</label>
+                        <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="base64imagem" name="base64imagem" type="text" value="@Model.base64imagem" readonly="readonly" />
+                    </div>
+
+                    @* NOME *@
+                    <div class="campo campo-100">
+                        <span class="field-validation-valid" data-valmsg-for="Nome" data-valmsg-replace="true"></span><label>NOME BANNER</label>
+                        <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Nome" name="Nome" type="text" maxlength="100" value="@Model.Nome" />
+                    </div>
+
+                    @* ESTATUS *@
+                    <div class="campo campo-100">
+                        <span class="field-validation-valid" data-valmsg-for="Estatus" data-valmsg-replace="true"></span><label>ESTATUS</label>
+                        <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Estatus" name="Estatus">
+                            @if (Model.Estatus == "ATIVO")
+                            {
+                                <option value="@Model.Estatus">@Model.Estatus</option>
+                                <option value="INATIVO">INATIVO</option>
+                            }
+                            else
+                            {
+                                <option value="@Model.Estatus">@Model.Estatus</option>
+                                <option value="ATIVO">ATIVO</option>
+                            }
+                        </select>
+                    </div>
+                    
+                    @{
+                        // UNIDADES
+                        string perfil = Session["PerfilAcesso"].ToString();
+                        if (perfil == "DIR" || perfil == "SUP")
+                        {
+                            <div class="campo campo-100">
+                                <span class="field-validation-valid" data-valmsg-for="Estatus" data-valmsg-replace="true"></span><label>UNIDADES</label>
+                                <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Unidade" name="Unidade">
+                                    <option value="@Model.Unidade">@Model.Unidade</option>
+                                    @foreach (var item in ViewBag.Unidades)
+                                    {
+                                        if (item.Unidade != Model.Unidade)
+                                        {
+                                            <option value="@item.Unidade">@item.Unidade</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                        else
+                        {
+                            <input type="hidden" id="Unidade" name="Unidade" value="@Model.Unidade" />
+                        }
+                    }
+
+                    @* BOTÕES *@
+                    <div class="campo-btn cor-degrade-cinza campo-100">
+                        <label for="arquivo" class="btn campo-25 btn-margem-right">IMAGEM</label>
+                        <input id="btn-deletar" class="btn campo-25 btn-margem-right" type="button" value="DELETAR">
+                        <input class="btn campo-25" type="submit" value="SALVAR">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        @* AVISO EXCLUSÃO *@
+        <div id="aviso-deletar" class="conteudo-retorno animated">
+            <div class="retorno cor-degrade-preto">
+                <img src="~/Imagens/LOGO-ATENCAO.png" alt="IMG" />
+
+                <h5>TEM CERTEZA QUE DESEJA EXCLUIR?</h5>
+
+                @* SIM *@
+                <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/DeletarBanner?idBanner=@Model.IdBanner">
+                    <input class="btn" type="button" value="SIM">
+                </a>
+
+                @* NÃO *@
+                <input class="btn" id="deletar-nao" type="button" value="NÃO">
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    fecharTelaProcess();
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('#btn-deletar').on('click', avisoDeletarAbrir);
+    $('#deletar-nao').on('click', avisoDeletarFechar);
+
+    // VALIDAÇÃO
+    jQuery.validator.unobtrusive.parse();
+    jQuery.validator.unobtrusive.parse("#form");
+
+</script>

@@ -1,0 +1,212 @@
+﻿@model DTO.Membro
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+        <form action="~/Membros/PostAlterarMembro" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" enctype="multipart/form-data" method="post">
+
+            @Html.ValidationSummary(true)
+
+            @* TARJA SUPERIOR *@
+            <div class="tarja-superior cor-degrade-preto">
+                <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>ALTERAR MEMBRO</b></h4>
+
+                @* BOTÃO FECHAR *@
+                <div class="btn-sair-formulario"><b>SAIR</b></div>
+            </div>
+
+            @* CAMPOS FORMULÁRIO *@
+            <div class="campos-formulario">
+
+                @* IMAGEM *@
+                <div class="box-conteudo-20" style="margin-top: 25px;">
+                    <div class="campo-arquivo">
+                        <div>
+                            <input type="file" accept="image/jpeg" id="arquivo" value="" onchange="carregarImagem()" />
+                            <input type="hidden" id="base64imagem" name="base64imagem" value="@Model.base64imagem" />
+                            <img src="@Model.base64imagem" alt="IMG-FUNDO" id="imagem" /> 
+
+                            @* BOTÕES *@
+                            <div class="campo-btn campo-100">
+                                <label for="arquivo" class="btn campo-100 btn-margem-right">ESCOLHA FOTO</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-conteudo-80">
+                    @* NOME *@
+                    <div class="campo campo-60 campo-padding">
+                        <span class="field-validation-valid" data-valmsg-for="Nome" data-valmsg-replace="true"></span><label>NOME COMPLETO</label>
+                        <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Nome" name="Nome" type="text" maxlength="50" value="@Model.Nome" />
+                    </div>
+
+                    @* APELIDO *@
+                    <div class="campo campo-40">
+                        <label>APELIDO</label>
+                        <input class="text-box single-line uppercase txt" id="Apelido" name="Apelido" type="text" maxlength="15" value="@Model.Apelido" />
+                    </div>
+
+                    @* CPF *@
+                    <div class="campo campo-20 campo-padding">
+                        <span class="field-validation-valid" data-valmsg-for="CPF" data-valmsg-replace="true"></span><label>CPF</label>
+                        <input type="hidden"  id="CPFbanco" name="CPFbanco" value="@Model.CPFbanco" />
+                        <input class="text-box single-line uppercase txt mask-cpf" data-val="true" data-val-required="OBRIGATÓRIO" id="CPF" name="CPF" type="text" maxlength="15" value="@Model.CPF" />
+                    </div>
+
+                    @* CARTEIRINHA *@
+                    <div class="campo campo-20 campo-padding">
+                        <label>CARTEIRINHA</label>
+                        <input class="uppercase txt" id="Carteirinha" name="Carteirinha" type="text" maxlength="15" value="@Model.Carteirinha" />
+                    </div>
+
+                    @* PATCH *@
+                    <div class="campo campo-20 campo-padding">
+                        <label>PATCH</label>
+                        <input class="uppercase txt mask-data" id="Patch" name="Patch" type="text" maxlength="20" value="@Model.Patch" />
+                    </div>
+
+                    @* BRASÃO *@
+                    <div class="campo campo-20 campo-padding">
+                        <label>BRASÃO</label>
+                        <input class="uppercase txt mask-data" id="Brasao" name="Brasao" type="text" maxlength="20" value="@Model.Brasao" />
+                    </div>
+
+                    @* NASCIMENTO *@
+                    <div class="campo campo-20">
+                        <label>NASCIMENTO</label>
+                        <input class="uppercase txt mask-data" id="Nascimento" name="Nascimento" type="text" maxlength="20" value="@Model.Nascimento" />
+                    </div>
+
+                    @* ENDEREÇO *@
+                    <div class="campo campo-100">
+                        <label>ENDEREÇO</label>
+                        <input class="uppercase txt" id="Endereco" name="Endereco" type="text" maxlength="80" value="@Model.Endereco" />
+                    </div>
+
+                    @* CEP *@
+                    <div class="campo campo-33 campo-padding">
+                        <label>CEP</label>
+                        <input class="uppercase txt mask-cep" id="CEP" name="CEP" type="text" maxlength="10" value="@Model.CEP" />
+                    </div>
+
+                    @* BAIRRO *@
+                    <div class="campo campo-33 campo-padding">
+                        <label>BAIRRO</label>
+                        <input class="uppercase txt" id="Bairro" name="Bairro" type="text" maxlength="50" value="@Model.Bairro" />
+                    </div>
+
+                    @* CIDADE *@
+                    <div class="campo campo-33">
+                        <label>CIDADE</label>
+                        <input class="uppercase txt" id="Cidade" name="Cidade" type="text" maxlength="50" value="@Model.Cidade" />
+                    </div>
+
+                    @* SANGUE *@
+                    <div id="campoUF" class="campo campo-20 campo-padding">
+                        <label>SANGUE</label>
+                        <select class="uppercase txt" id="Sangue" name="Sangue">
+                            <option value="@Model.Sangue">@Model.Sangue</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    @* TELEFONE *@
+                    <div class="campo campo-40 campo-padding">
+                        <label>TELEFONE</label>
+                        <input class="uppercase txt mask-telefone" id="Telefone" name="Telefone" type="text" maxlength="15" value="@Model.Telefone" />
+                    </div>
+
+                    @* E-MAIL *@
+                    <div class="campo campo-40">
+                        <label>E-MAIL</label>
+                        <input class="lowercase txt" id="Email" name="Email" type="text" maxlength="50" value="@Model.Email" />
+                    </div>
+
+                    @* ESTATUS *@
+                    <div id="campoUF" class="campo campo-50 campo-padding">
+                        <span class="field-validation-valid" data-valmsg-for="Estatus" data-valmsg-replace="true"></span><label>ESTATUS</label>
+                        <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Estatus" name="Estatus">
+                            <option value="@Model.Estatus">@Model.Estatus</option>
+                            <option value="">-----------</option>
+                            <option value="ATIVO">ATIVO</option>
+                            <option value="AFASTADO">AFASTADO</option>
+                        </select>
+                    </div>
+
+                    @{
+                        // UNIDADES
+                        string perfil = Session["PerfilAcesso"].ToString();
+                        if (perfil == "DIR" || perfil == "SUP")
+                        {
+                            <div class="campo campo-50">
+                                <span class="field-validation-valid" data-valmsg-for="Estatus" data-valmsg-replace="true"></span><label>UNIDADES</label>
+                                <select class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Unidade" name="Unidade">
+                                    <option value="@Model.Unidade">@Model.Unidade</option>
+                                    @foreach (var item in ViewBag.Unidades)
+                                    {
+                                        if (item.Unidade != Model.Unidade)
+                                        {
+                                            <option value="@item.Unidade">@item.Unidade</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="campo campo-50">
+                                <span class="field-validation-valid" data-valmsg-for="Unidade" data-valmsg-replace="true"></span><label>UNIDADE</label>
+                                <input class="text-box single-line uppercase txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Unidade" name="Unidade" type="text" maxlength="50" value="@Model.Unidade" readonly="readonly" />
+                            </div>
+                        }
+                    }
+
+                    @* ANOTAÇÃO *@
+                    <div class="campo campo-100">
+                        <label>ANOTAÇÃO</label>
+                        <textarea class="uppercase txt" id="Anotacao" name="Anotacao">@Model.Anotacao</textarea>
+                    </div>
+
+                    @* BOTÕES *@
+                    <div class="campo-btn cor-degrade-cinza campo-100">
+                        <input class="btn campo-30" type="submit" value="ALTERAR">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    @{ //RETORNO - PARTIAL VIEW
+
+        // DELETAR
+        if (ViewBag.Retorno == "CPF-EXISTE")
+        {
+            @Html.Partial("_RetornoCpfExistente")
+        }
+    }
+
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    mascarasTestos();
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('#btn-limpar').on('click', limparTextos);
+
+    // VALIDAÇÃO
+    jQuery.validator.unobtrusive.parse();
+    jQuery.validator.unobtrusive.parse("#form");
+
+</script>
+

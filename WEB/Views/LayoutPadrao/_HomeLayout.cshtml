@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    @* METAS - SITE *@
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    @* METAS - COMPARTILHAMENTO *@
+    <meta property="og:url" content="https://www.mcaguiassp.com.br" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Águias de Cristo | Regional São Paulo" />
+    <meta property="og:description" content="Fique por dentro de todos eventos dessa grande fámilia de Cristo sobre duas rodas." />
+    <meta property="og:image" content="https://www.mcaguiassp.com.br/public/img/miniatura-800x420.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    @* OUTROS *@
+    <title>Águias de Cristo | Regional São Paulo | Moto Cluble Cristão | Evangelho Sobre Duas Rodas</title>
+    <link href="~/Imagens/AguiasCristo_ICO.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+    @* GOOGLE ANALITYCS *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122381974-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122381974-1');
+    </script>
+</head>
+<body>
+
+    @* CONTAINER INTERFACE *@
+    <div class="interface">
+
+        @* MENU *@
+        <nav class="menu cor-degrade-preto">
+
+            @* MENU - LOGO *@
+            <a href="#Home" class="scroll"><div id="menu-logo" class="animated flip"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo-RimoIntegra"></div> </a>
+            <a href="#Home" class="scroll"><div id="menu-logo-descktop" class="animated flip"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo-RimoIntegra"></div> </a>
+
+            @* MENU - TITULO *@
+            <h1 id="menu-titulo-sm">Regional <span class="icone-fonte-laranja"></span> <b>SÃO PAULO</b></h1>
+            <h1 id="menu-titulo-xs">Regional <span class="icone-fonte-laranja"></span> <b>SÃO PAULO</b></h1>
+
+            @* MENU -LINKS *@
+            <ul id="menu-lista">
+                <li id="li-home" class="li-ativa" data-section="Home"><a href="#Home" class="scroll"><span class="icone-fonte"> </span>HOME</a></li>
+                <li id="li-unidades" data-section="Unidades"><a href="#Unidades" class="scroll"><span class="icone-fonte"> </span>UNIDADES</a></li>
+                <li id="li-historia" data-section="Historia"><a href="#Historia" class="scroll"><span class="icone-fonte"> </span>HISTÓRIA</a></li>
+                <li id="li-contato" data-section="Contato"><a href="#Contato" class="scroll"><span class="icone-fonte"> </span>CONTATO</a></li>
+                @*<li><a href="~/Evento/Agenda">EVENTOS</a></li>*@
+                <li><a href="http://www.lojaaguiasdecristo.com.br" target="_blank"><span class="icone-fonte"> </span>LOJA</a></li>
+                <li class="nao-celular"><a href="~/Login/Credenciais"><span class="icone-fonte"> </span>LOGIN</a></li>
+            </ul>
+
+            <div class="menu-icone">
+                <img src="~/Imagens/Icone-Menu.png" alt="Icone-Menu">
+            </div>
+
+            <div id="menu-janela"></div>
+
+            <div id="logo-lateral"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo"></div>
+
+            <div class="menu-linha cor-degrade-cinza-laranja"></div>
+
+        </nav>
+
+        @RenderBody()
+
+        @Html.Partial("~/Views/LayoutPadrao/_Rodape.cshtml")
+
+        @* PROGRESS *@
+        <div id="progress">
+            <div><img src="~/Imagens/LoaderAguiasCristo.gif" alt="IMG CARREGAMENTO" /></div>
+        </div>
+
+        @* RETORNO *@
+        <div id="retorno">
+            <div class="cor-degrade-preto">
+                <h1>
+                    Olá <b id="bRetorno"></b>, <br />recebemos seu contato. <br />
+                    Em breve entraremos em contato. <br />
+                    Muito Obrigado!
+                    <br />
+                    <br />
+                    <span id="btn-ok">Ok</span>
+                </h1>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

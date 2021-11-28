@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    @* METAS - SITE *@
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    @* METAS - COMPARTILHAMENTO *@
+
+    @{
+        //MONTAGEM LINK
+        string link = Request.Url.Scheme + "://" + ViewBag.HomeInfo.URL + "/Eventos/Agenda";
+        <meta property="og:url" content="@link" />
+    }
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ÁGUIAS DE CRISTO | @ViewBag.HomeInfo.Unidade" />
+    <meta property="og:description" content="FIque antenado sobre TODOS nossos eventos." />
+    <meta property="og:image" content="https://www.mcaguiassp.com.br/public/img/miniatura-800x420.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    @* OUTROS *@
+    <title>ÁGUIAS | @ViewBag.HomeInfo.Unidade</title>
+    <link href="~/Imagens/AguiasCristo_ICO.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+
+    <link href="~/Content/Global/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/Global/cores.css" rel="stylesheet">
+    <link href="~/Content/Animacoes/animate.css" rel="stylesheet">
+    <link href="~/Content/LayoutPadrao/_LayoutHome.css" rel="stylesheet">
+    <link href="~/Content/Home/evento.css" rel="stylesheet">
+   
+    @* GOOGLE ANALITYCS *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122381974-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122381974-1');
+    </script>
+</head>
+<body>
+
+    @* CONTAINER INTERFACE *@
+    <div class="interface">
+
+        @* MENU *@
+        <nav class="menu cor-degrade-preto">
+
+            @* MENU - LOGO *@
+            <a href="~/Home/Index"><div id="menu-logo" class="animated flip"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo-RimoIntegra"></div> </a>
+            <a href="~/Home/Index"><div id="menu-logo-descktop" class="animated flip"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo-RimoIntegra"></div> </a>
+
+            @* MENU - TITULO *@
+            <h1 id="menu-titulo-sm"><span class="icone-fonte-laranja"></span> <b>@ViewBag.HomeInfo.TituloSite</b></h1>
+            <h1 id="menu-titulo-xs"><span class="icone-fonte-laranja"></span> <b>@ViewBag.HomeInfo.TituloSite</b></h1>
+
+            @* MENU -LINKS *@
+            <ul id="menu-lista">
+                <li><a href="~/Home/Index">HOME</a></li>
+                <li id="li-eventos" class="li-ativa"><a href="#">EVENTOS</a></li>
+                <li><a href="http://www.lojaaguiasdecristo.com.br" target="_blank">LOJA</a></li>
+            </ul>
+
+            <div class="menu-icone">
+                <img src="~/Imagens/Icone-Menu.png" alt="Icone-Menu">
+            </div>
+
+            <div id="menu-janela"></div>
+
+            <div id="logo-lateral" style="margin-top: 300px;"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo"></div>
+
+            <div class="menu-linha cor-degrade-cinza-laranja"></div>
+
+        </nav>
+
+        @RenderBody()
+
+        @Html.Partial("~/Views/LayoutPadrao/_Rodape.cshtml")
+
+        @* PROGRESS *@
+        <div id="progress">
+            <div><img src="~/Imagens/LoaderAguiasCristo.gif" alt="IMG CARREGAMENTO" /></div>
+        </div>
+    </div>
+</body>
+</html>
+
+

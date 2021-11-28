@@ -1,0 +1,61 @@
+﻿<div class="container-fluid" id="unudades-regional">
+    <div class="row">
+        @{
+            foreach (var item in ViewBag.Unidades)
+            {
+                // ELIMINA ESPAÇOS EM BRANCO
+                string idUnidade = item.Unidade.Replace(" ", "");
+
+                // DEIXA O BOTÃO DA UNIDADE CORRESPONDENTE LARANJA
+                // CASO O USUÁRIO FAÇA A PESQUISA
+                if (ViewBag.UnidadePesquisada != "")
+                {
+                    if (ViewBag.UnidadePesquisada == item.Unidade)
+                    {
+                        <div class="col-lg-3">
+                            <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventosPorUnidade?unidade=@item.Unidade">
+                                <input type="button" class="btn cor-degrade-laranja btn-unidadeRegional" value="@item.Unidade" id="@idUnidade" />
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-lg-3">
+                            <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventosPorUnidade?unidade=@item.Unidade">
+                                <input type="button" class="btn cor-degrade-preto btn-unidadeRegional" value="@item.Unidade" id="@idUnidade" />
+                            </a>
+                        </div>
+                    }
+                }
+                // BLOCO EXECUTADO NA PRIMEIRA EXECUÇÃO
+                else
+                {
+                    <div class="col-lg-3">
+                        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventosPorUnidade?unidade=@item.Unidade">
+                            <input type="button" class="btn cor-degrade-preto btn-unidadeRegional" value="@item.Unidade" id="@idUnidade" />
+                        </a>
+                    </div>
+                }
+            }
+
+            // CASO O USUÁRIO FAÇA A PESQUISA
+            // DEIXA BOTÃO LARANJA CAJO TENHA PESQUISADO POR REGIONAL
+            if (ViewBag.UnidadePesquisada == "REGIONAL")
+            {
+                <div class="col-lg-3">
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventosPorUnidade?unidade=REGIONAL">
+                        <input type="button" class="btn cor-degrade-laranja btn-unidadeRegional" value="REGIONAL" id="REGIONAL" />
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-3">
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Evento/ListarEventosPorUnidade?unidade=REGIONAL">
+                        <input type="button" class="btn cor-degrade-preto btn-unidadeRegional" value="REGIONAL" id="REGIONAL" />
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>

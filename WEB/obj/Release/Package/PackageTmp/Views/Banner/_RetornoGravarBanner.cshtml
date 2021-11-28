@@ -1,0 +1,24 @@
+﻿@* RETORNO *@
+<div class="conteudo-retorno animated zoomInDown">
+    <div class="retorno cor-degrade-preto">
+        <img src="~/Imagens/LOGO-OK.png" alt="IMG" />
+
+        <h5>IMAGEM SALVA</h5>
+
+        @* OK *@
+        <input class="btn btn-ok" type="button" value="OK">
+
+        @* NOVA UNIDADE *@
+        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/GravarBanner">
+            <input class="btn btn-nova-imagem" type="button" value="SALVAR NOVA IMAGEM">
+        </a>
+
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario();
+    $('.btn-nova-imagem').on('click', fecharFormulario);
+    $('.btn-ok').on('click', conteudoRetornoFechar);
+</script>

@@ -1,0 +1,20 @@
+﻿@* RETORNO *@
+<div class="conteudo-retorno animated zoomInDown">
+    <div class="retorno cor-degrade-preto">
+        <img src="~/Imagens/LOGO-OK.png" alt="IMG" class="margem-top-50" />
+
+        <h5>BANNER ALTERADO</h5>
+
+        @* OK *@
+        <input class="btn btn-ok" type="button" value="OK">
+
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario();
+    $('.btn-ok').on('click', conteudoRetornoFechar);
+    $('.btn-fechar').on('click', fecharFormulario);
+</script>
+

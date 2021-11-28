@@ -1,0 +1,99 @@
+﻿@* MENU SUPERIOR *@
+<div class="row">
+
+    @* TÍTULO *@
+    <div class="col-xs-12 col-sm-5">
+        <h1><span class="icone-fonte animated infinite bounceIn"></span> EVENTOS | @ViewBag.Mes</h1>
+    </div>
+
+    @* CAMPO PESQUISA *@
+    <div class="col-xs-12 col-sm-7">
+        <select id="mesPesquuisa" onchange="eventosPeloMes()">
+            <option value="">PESQUISE PELO MÊS</option>
+            <option value="01">JANEIRO</option>
+            <option value="02">FEVEREIRO</option>
+            <option value="03">MARÇO</option>
+            <option value="04">ABRIL</option>
+            <option value="05">MAIO</option>
+            <option value="06">JUNHO</option>
+            <option value="07">JULHO</option>
+            <option value="08">AGOSTO</option>
+            <option value="09">SETEMBRO</option>
+            <option value="10">OUTUBRO</option>
+            <option value="11">NOVEMBRO</option>
+            <option value="12">DEZEMBRO</option>
+        </select>
+    </div>
+</div>
+
+@* LISTA EVENTOS *@
+<div class="row">
+
+    @{
+        foreach (var item in ViewBag.EventoLista)
+        {
+            @* EVENTO - ITEM *@
+            <div class="evento-item col-sm-4 col-xs-12">
+                <section>
+
+                    @* INFORMAÇÕES *@
+                    <div class="evento-informacoes col-xs-12">
+                        <h2>@item.Descricao</h2>
+
+                        @{
+                            // UNIDADE
+                            if (item.Unidade != "N/A")
+                            {
+                                <p>Evento: <span>@item.Unidade</span></p>
+                            }
+
+                            // PAIS - UF
+                            if (item.Pais != "N/A")
+                            {
+                                <p>Pais: <span>@item.Pais @item.UF</span></p>
+                            }
+
+                            // LOCALIDADE
+                            if (item.Localidade != "N/A")
+                            {
+                                <p>Localidade: <span>@item.Localidade</span></p>
+                            }
+
+                            // ENDERECO
+                            if (item.Endereco != "N/A")
+                            {
+                                <p>Endereço: <span>@item.Endereco</span></p>
+                            }
+
+                            // CONTATO
+                            if (item.Contato != "N/A")
+                            {
+                                <p>Contato: <span>@item.Contato</span></p>
+                            }
+
+                            // DATAS
+                            if (item.Datas != "N/A")
+                            {
+                                <p>Data: <span>@item.Datas</span></p>
+                            }
+
+                            // ANOTAÇÕES
+                            if (item.Anotacao != "N/A")
+                            {
+                                <p>Importante: <span>@item.Anotacao</span></p>
+                            }
+                        }
+
+
+                    </div>
+                </section>
+            </div>
+                            }
+    }
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    $("#progress").css('display', 'none');
+</script>
+

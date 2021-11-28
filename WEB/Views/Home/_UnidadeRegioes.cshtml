@@ -1,0 +1,28 @@
+﻿@*TITULO *@
+<h1>Unidades | Estado de São Paulo </h1>
+
+@*FILTRO 1 - ESTADOS *@
+<a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#unidade-resultado" href="/Home/UnidadeInfo">
+    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>São Paulo</p></div>
+</a>
+
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Carapicuiba</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Praia Grande</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Caieiras</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Sorocaba</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>São José</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Santos</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Campinas</p></div>
+<div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Poá</p></div>
+
+@* BTN VOLTAR *@
+<a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#unidade-resultado" href="/Home/UnidadeInicio">
+    <div id="BtnSaoPaulo" class="btn-unidades-voltar col-xs-12"><p>VOLTAR</p></div>
+</a>
+
+@* FUNÇÃO RETORNO PARA TOPO DA SEÇÃO UNIDADES *@
+<script type="text/javascript">
+    $('.btn-unidades-voltar').on('click', function () {
+        window.location.href = '#Unidades';
+    });
+</script>

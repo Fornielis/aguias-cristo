@@ -1,0 +1,127 @@
+﻿@{ // VARIAVEL GLOBAL
+    var regional = new DTO.UnidadeLista();
+    var estados = new DTO.UnidadeLista();
+    var pais = new DTO.UnidadeLista();
+}
+
+@* REGIONAL *@
+<div class="col-sm-6 unidades-item">
+
+    @* REGONALE SP *@
+    <div class="row destaque">
+
+        @{ // PREENCHE DADOS REGIONAL
+
+            // SETA  VARIAVEL GLOBAL CORRESPONDENTE
+            regional = ViewBag.Regional;
+
+            if (regional.Count() > 0)
+            {
+                @* TITULO *@
+                <section>
+                    <h1>Regional São Paulo<span class="icone-fonte" style="font-size: 130%;"> </span></h1>
+                </section>
+
+                foreach (var item in regional)
+                {
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoUnidade" href="~/Unidade/DetalheUnidade?idUnidade=@item.IdUnidade">
+                        <div class="btn-unidades col-sm-12 cor-degrade-preto">
+                            <p>@item.Nome</p>
+                        </div>
+                    </a>
+                }
+            }
+        }
+
+        @* ITEM APENAS PARA SEPARAÇÃO *@
+        <div class="col-xs-12 margin-bottom-20"></div>
+
+        @* SEDE NACIONAL *@
+        <div class="row sede cor-degrade-cinza-2">
+
+            @* TITULO *@
+            <section>
+                <h1><span class="animated infinite fadeIn icone-fonte"> </span>Sede Nacional</h1>
+            </section>
+
+            @* INFORMAÇÕES *@
+            <h3 class="margin-bottom-20 titulo-sede">
+                Rua Sara Braune, 89 Braunes <br />
+                Nova Friburgo - RJ
+            </h3>
+
+            @* BOTÕES LINKS *@
+            <a href="http://aguiasdecristomc.com.br/" target="_blank"><div class="btn-unidades col-sm-12 cor-degrade-preto"><p>SITE OFICIAL</p></div></a>
+
+        </div>
+    </div>
+
+</div>
+
+@* UNIDADES *@
+<div class="col-xs-12 col-sm-6 unidades-item">
+
+    @* BRASIL *@
+    <div class="row">
+
+        @{ // PREENCHE DADOS REGIONAL
+
+            // SETA  VARIAVEL GLOBAL CORRESPONDENTE
+            estados = ViewBag.Estado;
+
+            if (estados.Count() > 0)
+            {
+                @* TITULO *@
+                <section>
+                    <h1><span class="icone-fonte"> </span>Unidades pelo Brasil</h1>
+                </section>
+
+                foreach (var item in estados)
+                {
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoUnidade" href="~/Unidade/PorRegiaoUnidade?uf=@item.UF">
+                        <div class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto">
+                            <p>@item.UF</p>
+                        </div>
+                    </a>
+                }
+            }
+        }
+    </div>
+
+    @* MUNDO *@
+    <div class="row">
+
+        @{ // PREENCHE DADOS REGIONAL
+
+            // SETA  VARIAVEL GLOBAL CORRESPONDENTE
+            pais = ViewBag.Paises;
+
+            if (pais.Count() > 0)
+            {
+                @* TITULO *@
+                <section>
+                    <h1><span class="icone-fonte"> </span>Outros Países</h1>
+                </section>
+
+                foreach (var item in pais)
+                {
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoUnidade" href="~/Unidade/PorPaisUnidade?pais=@item.Pais">
+                        <div class="btn-unidades col-sm-6 cor-degrade-preto">
+                            <p>@item.Pais</p>
+                        </div>
+                    </a>
+                }
+            }
+        }
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // ROLAR PARA SEÇÃO UNIDADES
+    $('.btn-unidades').on('click', function () {
+        window.location.href = '#Unidades';
+    });
+
+</script>

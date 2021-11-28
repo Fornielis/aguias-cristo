@@ -1,0 +1,77 @@
+﻿@model DTO.Contato
+<section id="conteudo-contato">
+    @* TITULO *@
+    <h1><span class="icone-fonte"></span> Mantenha Contato Conosco</h1>
+
+    @* DÚVIDAS *@
+    <div class="row col-sm-6 col-xs-12 box-informe">
+        <section>
+            <h3 style="color: #f39200;">Você tem alguma dúvida ou deseja ficar informado sobre nossas novidades e eventos?</h3>
+
+            @* FORMULÁRIO DÚVIDAS *@
+            <form action="~/Home/PostContato" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#resultadoContato" id="form" method="post">
+
+                @* NOME *@
+                <span class="field-validation-valid" data-valmsg-for="Nome" data-valmsg-replace="true"></span><label><b class="icone-fonte"> </b>Primeiro Nome</label>
+                <input class="text-box single-line input-txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Nome" name="Nome" type="text" maxlength="12" value="" placeholder="Apenas o primeiro Nome" />
+
+                @* E-MAIL *@
+                <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span><label><b class="icone-fonte"> </b>E-mail</label>
+                <input class="text-box single-line input-txt" data-val="true" data-val-required="OBRIGATÓRIO" id="Email" name="Email" type="text" maxlength="100" value="" placeholder="Informe seu E-mail" />
+
+
+                @* MENSAGEM *@
+                <label><b class="icone-fonte"> </b>Mensagem</label>
+                <textarea maxlength="2000" value="" placeholder="Deixe aqui sua mensagem" id="Mensagem" name="Mensagem"></textarea>
+
+                @* BOTÃO *@
+                <input class="btn-form-enviar cor-degrade-preto" type="submit" name="name" value="ENVIAR" />
+            </form>
+
+            <h5>Pode ficar tranquilo que não usaremos essas informações para publicidade!</h5>
+        </section>
+    </div>
+
+    @* MAPA *@
+    <div class="row col-sm-6 col-xs-12 box-mapa">
+        <div class="row">
+            <h3>Você está em @ViewBag.HomeInfo.Unidade?<br />Venha nos fazer uma visita!</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-xs-12">
+                <iframe src="@ViewBag.HomeInfo.UrlGoogleMaps" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-lg-4 qrcode">
+                <h4 class="icone-fonte-laranja"></h4>
+                <h5>Leia e tenha todas nossas informações!</h5>
+                <img src="@ViewBag.HomeInfo.UrlQrCode" alt="QR-CODE" />
+            </div>          
+        </div>
+        
+        <h2>
+            <span class="icone-fonte"></span> @ViewBag.HomeInfo.Reuniao <br />
+            <span style="color:#ffffff; font-size: 80%;">@ViewBag.HomeInfo.Endereco</span>
+        </h2>
+    </div>
+
+    @* FUNÇÕES QUE SERÃO EXECUTADAS *@
+    <script type="text/javascript">
+
+        // REMOVE CLASSES DO RETORNO
+        $('#retorno').removeClass('animated bounceOut');
+
+        // APRESENTA RETORNO
+        var retorno = '@ViewBag.Retorno';
+        if (retorno == 'true') {
+            $('#retorno').css('display', 'block');
+        }
+
+        // SETA VALOR DO NOME
+        document.getElementById('bRetorno').innerHTML = '@ViewBag.Nome';
+
+        // VALIDAÇÃO
+        jQuery.validator.unobtrusive.parse();
+        jQuery.validator.unobtrusive.parse("#form");
+
+    </script>
+</section>

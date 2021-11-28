@@ -1,0 +1,87 @@
+﻿@model DTO.UnidadeLista
+
+@* FORMULÁRIO *@
+<div id="" class="conteudo">
+    <section>
+        
+        @* TARJA SUPERIOR *@
+        <div class="tarja-superior cor-degrade-preto">
+            <h4><span class="animated infinite bounceInLeft">&#10687;</span><b>CONSULTA UNIDADE</b></h4>
+
+            @* BOTÃO FECHAR *@
+            <div class="btn-sair-formulario"><b>SAIR</b></div>
+        </div>
+
+        @* CAMPO BUSCA *@
+        <div class="campo-busca">
+            <form action="~/Unidade/PostPesquisarUnidade" data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" id="form" method="post">
+                <input class="uppercase txt" id="valorInformado" name="valorInformado" type="text" maxlength="100" placeholder="Pesquise pelo Nome"  value="" />
+                <input class="btn" type="submit" value="BUSCAR">
+            </form>
+        </div>
+
+        @* TABELA UNIDADES *@
+        <div class="conteudo-tabela">
+            <table class="">
+                <thead class="cor-degrade-preto">
+                    <tr>
+                        <th class="radius-top-left">NOME</th>
+                        <th>ESTATUS</th>
+                        <th>PAIS</th>
+                        <th>UF</th>
+                        <th>CIDADE</th>
+                        <th class="radius-top-right">ENDEREÇO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in Model)
+                        {
+                            //MONTAGEM LINK
+                            string href = Request.Url.Scheme + "://" + Request.Url.Authority + "/Unidade/AlterarUnidade?idUnidade=" + @item.IdUnidade;
+
+                            <tr class="linha" onclick="linkLinha('@href')">
+                                <td class="pading-left">@item.Nome</td>
+                                <td>@item.Estatus</td>
+                                <td>@item.Pais</td>
+                                <td>@item.UF</td>
+                                <td>@item.Cidade</td>
+                                <td>@item.Endereco</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @{ //RETORNO - PARTIAL VIEW
+
+            // DELETAR
+            if (ViewBag.Retorno == "DELETAR")
+            {
+              @Html.Partial("_RetornoDeletarUnidade")
+            }
+            // GRAVAR
+            if (ViewBag.Retorno == "GRAVAR")
+            {
+                @Html.Partial("_RetornoGravarUnidade")
+            }
+            // ALTERAR
+            if (ViewBag.Retorno == "ALTERAR")
+            {
+                @Html.Partial("_RetornoAlterarUnidade")
+            }
+        }
+
+    </section>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+
+    // INTERAÇÕES
+    abrirFormulario();
+    $('.btn-sair-formulario').on('click', fecharFormulario);
+    $('.linha').on('click', fecharFormulario);
+
+</script>

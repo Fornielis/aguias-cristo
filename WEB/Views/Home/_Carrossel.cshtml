@@ -1,0 +1,96 @@
+﻿@model DTO.BannerLista
+
+@{
+    // VARIAVEL QUE RECEBE QUANTIDADE DE ITENS NO MODEL
+    int quantidadeItens = Model.Count();
+
+    if (quantidadeItens <= 0)
+    {
+        <div id="carrossel-vazio" class="animated zoomInUp">
+            <img src="~/Imagens/SEM-BANNER.jpg" alt="BANNER" />
+        </div>
+    }
+    else
+    {
+        <div id="carousel-example-generic" class="carousel slide animated zoomInUp" data-ride="carousel">
+            @{
+                // VARIAVEL CONTADOR
+                int contador = 0;
+
+                @* INDICADORES *@
+                <ol class="carousel-indicators">
+                    @foreach (var item in Model)
+                    {
+                        // TESTA VARIAVEL PARA APLICAR CLASSE ACTIVE
+                        if (contador == 0)
+                        {
+                            <li data-target="#carousel-example-generic" data-slide-to="@contador.ToString()" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#carousel-example-generic" data-slide-to="@contador.ToString()"></li>
+                        }
+
+                        // INCREMENTA CONTADOR
+                        contador++;
+                    }
+                </ol>
+            }
+
+
+            @* SLIDES *@
+            <div class="carousel-inner" role="listbox">
+
+                @{
+                    // VARIAVEL QUE RECEBE PRIMEIRO ID DA LISTA
+                    int primeiroId = 0;
+
+                    foreach (var item in Model)
+                    {
+                        // TESTA VARIAVEL PARA APLICAR CLASSE ACTIVE
+                        if (primeiroId == 0)
+                        {
+                            primeiroId = item.IdBanner;
+
+                            <div class="item active">
+                                <div class="item">
+                                    <div class="item-slide">
+                                        <img src="@item.base64imagem" alt="@item.Nome" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item">
+                                <div class="item">
+                                    <div class="item-slide">
+                                        <img src="@item.base64imagem" alt="@item.Nome" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+
+
+                @* CONTROLES *@
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="icone-left" aria-hidden="true">&#9668;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="icone-right" aria-hidden="true">&#9654;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    }
+}
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    $("#progress").css('display', 'none');
+</script>
+

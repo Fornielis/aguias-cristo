@@ -1,0 +1,291 @@
+﻿/* Responsividade:
+   
+    - Grid Bootstrap:
+        col-xs | até 480px
+        col-sm | maior igual 768px
+        col-md | maior igual 998px
+        col-lg | maior igual 1200px
+-------------------------------------------------- */
+
+/* GLOBAIS
+-------------------------------------------------- */
+@charset "UTF-8";
+@font-face {
+    font-family: 'Icone';
+    src: url('../../fonts/Font Awesome 5 Free-Solid-900.otf');
+}
+
+.icone-fonte{
+    font-family: 'Icone';
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 0px;
+    overflow-x: hidden;
+    font-family: 'Athiti', sans-serif;
+    background-image: url(../../Imagens/SLIDE-IMG-FUNDO.jpg);
+}
+
+a:hover,
+a:visited,
+a:active,
+a:link {
+    text-decoration: none;
+}
+
+/* MENU SUPERIOR
+-------------------------------------------------- */
+#menu-superior {
+    width: 100%;
+    height: 59px;
+    position: fixed;
+    top: 0px;
+    padding: 10px;
+    box-shadow: 0px 2px 15px rgba(0,0,0,.5);
+    border-bottom: solid 3px #f39200;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+h4 {
+    float: left;
+    color: #f39200;
+}
+
+.menu-logo {
+    width: 40px;
+    height: 40px;
+    display: block;
+    float: left;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+    .menu-logo img {
+        width: 100%;
+    }
+
+.menu-info-usuario {
+    width: auto;
+    height: 60px;
+    padding: 10px 20px 0px 20px;
+    margin-top: -10px;
+    margin-right: -10px;
+    float: right;
+    border-right: solid 3px #f39200;
+    background-color: rgba(255,255,255,.1);
+    cursor: pointer;
+    transition: all .4s;
+}
+
+    .menu-info-usuario h6, p {
+        display: inline-block;
+        font-size: 110%;
+        color: #ffffff;
+    }
+
+.usuario-sair {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background-color: #f39200;
+    float: right;
+    margin-top: -50px;
+    margin-right: -80px;
+    margin-left: 20px;
+    color: #ffffff;
+    padding-top: 20px;
+    display: inline-block;
+    transition: all .4s;
+}
+
+.menu-info-usuario:hover {
+    margin-right: 45px;
+}
+
+.menu-info-usuario:hover {
+    background-color: rgba(255,255,255,.2);
+}
+
+.usuario-sair:hover {
+    background: #000000;
+}
+/* MENU LATERAL
+------------------------------------------------- */
+#menu-lateral {
+    padding: 0px;
+    min-height: 100vh;
+    background: #000000;
+    background: -moz-linear-gradient(top, #000000 0%, #4b4b4c 100%);
+    background: -webkit-linear-gradient(top, #000000 0%,#4b4b4c 100%);
+    background: linear-gradient(to bottom, #000000 0%,#4b4b4c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4b4b4c',GradientType=0 );
+    position: fixed;
+    z-index: 999;
+}
+
+#menu-inativo {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+}
+
+.btn-menu {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    padding-right: 20px;
+    padding-top: 5px;
+    background: #000000;
+    background: -moz-linear-gradient(top, #000000 0%, #4b4b4c 100%);
+    background: -webkit-linear-gradient(top, #000000 0%,#4b4b4c 100%);
+    background: linear-gradient(to bottom, #000000 0%,#4b4b4c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#4b4b4c',GradientType=0 );
+    border-bottom: solid 1px #4b4b4c;
+    box-shadow: -10px 5px 20px rgba(0,0,0,.7);
+    transition: all .4s;
+}
+
+    /* HOVER */
+    .btn-menu:hover {
+        background: #000000;
+        border-bottom: solid 1px #f39200;
+    }
+
+    .btn-menu p {
+        color: #ffffff;
+        font-size: 110%;
+        padding: 10px 5px 3px 20px;
+        transition: all .8s;
+    }
+
+    .btn-menu h4 {
+        color: #f39200;
+        float: right;
+        margin-top: 12px;
+        transform: rotate(0deg);
+        transition: all .8s;
+    }
+
+/* MENU LATERAL - LISTA
+-------------------------------------------------- */
+.menu-lateral-lista {
+    width: 100%;
+    height: auto;
+    list-style: none;
+    background-color: #cccccc;
+    margin: 0px;
+    border-bottom: solid 4px #f39200;
+    transition: all .4s linear;
+}
+
+    .menu-lateral-lista li {
+        height: auto;
+        padding-left: 20px;
+        cursor: pointer;
+        margin-left: -40px;
+        font-size: 120%;
+        background: #cccccc;
+        background: -moz-linear-gradient(top, #cccccc 0%, #bfbfbf 100%);
+        background: -webkit-linear-gradient(top, #cccccc 0%,#bfbfbf 100%);
+        background: linear-gradient(to bottom, #cccccc 0%,#bfbfbf 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#bfbfbf',GradientType=0 );
+        overflow: hidden;
+    }
+
+.menu-ativo {
+    background: #dc8502;
+    background: -moz-linear-gradient(top, #dc8502 0%, #f39200 100%);
+    background: -webkit-linear-gradient(top, #dc8502 0%,#f39200 100%);
+    background: linear-gradient(to bottom, #dc8502 0%,#f39200 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc8502', endColorstr='#f39200',GradientType=0 );
+    border-bottom: solid 1px #f39200;
+}
+
+    .menu-ativo h4 {
+        color: #000000;
+    }
+
+    .menu-ativo:hover {
+        background: #dc8502;
+        background: -moz-linear-gradient(top, #dc8502 0%, #f39200 100%);
+        background: -webkit-linear-gradient(top, #dc8502 0%,#f39200 100%);
+        background: linear-gradient(to bottom, #dc8502 0%,#f39200 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc8502', endColorstr='#f39200',GradientType=0 );
+    }
+
+.menu-lateral-lista li a {
+    color: #000000;
+    display: block;
+    padding: 8px;
+}
+
+/* HOVER */
+.menu-lateral-lista li:hover a {
+    color: #ffffff;
+}
+
+.menu-lateral-lista li:hover {
+    background: #9d9d9c;
+    color: #ffffff;
+}
+
+#conteudo {
+    padding: 0;
+    margin-bottom: -59px;
+}
+
+#progress {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.8);
+    display: block;
+    z-index: 1000;
+    display: none;
+}
+
+    #progress div {
+        width: 248px;
+        height: 248px;
+        position: absolute;
+        margin-top: -124px;
+        top: 50%;
+        margin-left: -124px;
+        left: 50%;
+        border-radius: 100%;
+    }
+
+        #progress div img {
+            width: 100%;
+        }
+
+#erro-tela {
+    display: none;
+}
+
+/* MEDIA QUERY 
+-------------------------------------------------- */
+@media(min-width: 0px) and (max-width: 1119px) {
+
+    #menu-superior {
+        display: none;
+    }
+
+    #menu-lateral {
+        display: none;
+    }
+
+    .container-fluid {
+        display: none;
+    }
+}

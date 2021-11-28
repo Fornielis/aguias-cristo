@@ -1,0 +1,25 @@
+﻿@* RETORNO *@
+<div class="conteudo-retorno animated zoomInDown">
+    <div class="retorno cor-degrade-preto">
+        <img src="~/Imagens/LOGO-ERRO.png" alt="IMG" />
+
+        <h5>CPF JÁ EXISTE</h5>
+        <p>Confira e tente novamente!</p>
+
+        @* OK *@
+        <input class="btn btn-ok" type="button" value="OK">
+
+    </div>
+</div>
+
+@* FUNÇÕES QUE SERÃO EXECUTADAS *@
+<script type="text/javascript">
+    abrirFormulario();
+    $('.btn-novo-membro').on('click', fecharFormulario);
+    $('.btn-ok').on('click', conteudoRetornoFechar);
+
+    // MACETE PARA AJUSTAR TARJA SUPERIOR NO LOCAL
+    $(".tarja-superior").css("margin-top", "-10px");
+
+</script>
+

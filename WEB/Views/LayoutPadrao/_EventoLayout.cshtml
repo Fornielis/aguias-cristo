@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1" />
+    <title>Aguias Cristo</title>
+    <link href="~/Imagens/AguiasCristo_ICO.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+
+    @* CONTAINER INTERFACE *@
+    <div class="interface">
+
+        @* MENU *@
+        <nav class="menu cor-degrade-preto">
+
+            @* MENU - LOGO *@
+            <a href="~/Home/Index"><div id="menu-logo" class="animated flip"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo-RimoIntegra"></div> </a>
+            <a href="~/Home/Index"><div id="menu-logo-descktop" class="animated flip"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo-RimoIntegra"></div> </a>
+
+            @* MENU - TITULO *@
+            <h1 id="menu-titulo-sm"><b>REGIONAL - SÃO PAULO</b></h1>
+            <h1 id="menu-titulo-xs"><b>REGIONAL - SÃO PAULO</b></h1>
+
+            @* MENU -LINKS *@
+            <ul id="menu-lista">
+                <li><a href="~/Home/Index">HOME</a></li>
+                <li id="li-eventos" class="li-ativa"><a href="#">EVENTOS</a></li>
+                <li><a href="http://www.lojaaguiasdecristo.com.br" target="_blank">LOJA</a></li>
+                <li class="nao-celular"><a href="~/Login/Credenciais">LOGIN</a></li>
+            </ul>
+
+            <div class="menu-icone">
+                <img src="~/Imagens/Icone-Menu.png" alt="Icone-Menu">
+            </div>
+
+            <div id="menu-janela"></div>
+
+            <div id="logo-lateral" style="margin-top: 300px;"><img src="~/Imagens/Logo_AguiasCristo_200x200.png" alt="Logo"></div>
+
+            <div class="menu-linha cor-degrade-cinza-laranja"></div>
+
+        </nav>
+
+        @RenderBody()
+
+        @Html.Partial("~/Views/LayoutPadrao/_Rodape.cshtml")
+
+        @* PROGRESS *@
+        <div id="progress">
+            <div><img src="~/Imagens/LoaderAguiasCristo.gif" alt="IMG CARREGAMENTO" /></div>
+        </div>
+    </div>
+</body>
+</html>
+
+

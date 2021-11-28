@@ -1,0 +1,42 @@
+﻿<div class="container-fluid" id="unudades-regional">
+    <div class="row">
+        @{
+            foreach (var item in ViewBag.Unidades)
+            {
+                // ELIMINA ESPAÇOS EM BRANCO
+                string idUnidade = item.Unidade.Replace(" ", "");
+
+                // DEIXA O BOTÃO DA UNIDADE CORRESPONDENTE LARANJA
+                // CASO O USUÁRIO FAÇA A PESQUISA
+                if (ViewBag.UnidadePesquisada != "")
+                {
+                    if (ViewBag.UnidadePesquisada == item.Unidade)
+                    {
+                        <div class="col-lg-3">
+                            <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/ListarBannerPorUnidade?unidade=@item.Unidade">
+                                <input type="button" class="btn cor-degrade-laranja btn-unidadeRegional" value="@item.Unidade" id="@idUnidade" />
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-lg-3">
+                            <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/ListarBannerPorUnidade?unidade=@item.Unidade">
+                                <input type="button" class="btn cor-degrade-preto btn-unidadeRegional" value="@item.Unidade" id="@idUnidade" />
+                            </a>
+                        </div>
+                    }
+                }
+                // BLOCO EXECUTADO NA PRIMEIRA EXECUÇÃ
+                else
+                {
+                    <div class="col-lg-3">
+                        <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#conteudo" href="~/Banner/ListarBannerPorUnidade?unidade=@item.Unidade">
+                            <input type="button" class="btn cor-degrade-preto btn-unidadeRegional" value="@item.Unidade" id="@idUnidade" />
+                        </a>
+                    </div>
+                }
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,197 @@
+﻿@{
+    Layout = "~/Views/LayoutPadrao/_HomeLayout.cshtml";
+}
+@Styles.Render("~/Content/Home")
+
+@* CARROSSEL *@
+<div id="Home" class="section">
+    <div class="container">
+        <div class="row">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                @* INDICADORES *@
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                @* SLIDES *@
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="item-slide">
+                            <img src="~/Imagens/BR-BANNER-00.jpg" alt="slide-00" />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item">
+                            <div class="item-slide">
+                                <img src="~/Imagens/BR-BANNER-01.jpg" alt="slide-01" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item">
+                            <div class="item-slide">
+                                <img src="~/Imagens/BR-BANNER-02.jpg" alt="slide-02" />
+                            </div>
+                        </div>
+                    </div>
+
+                    @* CONTROLES *@
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="icone-left" aria-hidden="true">&#9668;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="icone-right" aria-hidden="true">&#9654;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* UNIDADES *@
+<div id="Unidades" class="section">
+    <div class="container">
+
+        @* UNIDADES - TITULO *@
+        <div class="row unidade-animacao animated fadeOutDown">
+
+            @* MAPA - IMAGEM *@
+            <div class="col-sm-4 unidades-item mapa">
+                <img src="~/Imagens/UNIDADES-MAPA.png" alt="MAPA" />
+            </div>
+
+            @* UNIDADES *@
+            <div id="unidade-resultado" class="col-xs-12 col-sm-8 unidades-item">
+
+                @* BRASIL *@
+                <div class="row">
+                    @* TITULO *@
+                    <h1>Unidades | Brasil</h1>
+
+                    <a data-ajax="true" data-ajax-loading="#progress" data-ajax-mode="replace" data-ajax-update="#unidade-resultado" href="/Home/UnidadeRegioes">
+                        <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto scroll"><p>SP</p></div>
+                    </a>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>RJ</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>MG</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>BH</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>BA</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>GO</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>RS</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>DF</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>MA</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>RO</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>CE</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>MA</p></div>
+                </div>
+
+                @* MUNDO *@
+                <div class="row">
+                    @*TITULO *@
+                    <h1 class="h1-unidades-mundo">Unidades | Mundo</h1>
+
+                    @*FILTRO 1 - ESTADOS *@
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Estados Unidos</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Uruguai</p></div>
+                    <div id="BtnSaoPaulo" class="btn-unidades col-sm-4 col-xs-6 cor-degrade-preto"><p>Argentina</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* HISTÓRIA *@
+<div id="Historia" class="section">
+    <div class="container">
+        <div class="row historia-animacao animated fadeOutDown">
+
+            @* TEXTO HISTÓRIA *@
+            <div class="histotia-texto col-sm-6 col-xs-12">
+                <h1>História Fundação do Águias de Cristo</h1>
+                <p>
+                    Em São Paulo, o Moto Clube foi criado em 09 de novembro de 2013, na casa do Presidente, na época o pastor Alessandro Richter, em intercâmbio com o MC Águias de Cristo POÁ.<br />
+                    Hoje o Águias de Cristo São Paulo está em nova sede à Rua do Cursino 2995, liderado pelo Presidente Fábio Passos. <br />
+                    Mas antes disso, o Senhor falou ao nosso presidente fundador, Ernani Macedo, como ele mesmo relata: <br />
+                    Era noite, cerca de 21 horas aproximadamente, eu estava com um grupo de motociclistas de um conhecido moto clube que existia em Nova Friburgo, num local conhecido como véu das noivas tranquilamente tomando um refrigerante. Já era escudado por eles, mas na verdade algo me incomodava pois sentia-me um “estranho no ninho”. Eu era o único cristão do grupo e raramente me davam a oportunidade de falar de Jesus, coisas de ímpio… de repente, meu coração acelerou e uma voz suave, mas ao mesmo tempo carregada de autoridade falou: – “Quero que você saia daqui agora, pois tenho coisas a lhe dizer! ” - “Quero que você monte um moto clube e ele se chamará “Águias de Cristo”
+                    – “Este moto clube é meu e vocês serão minhas águias, pois quando se cansarem e quiserem desistir, Eu os renovarei como águia citada em minha palavra em Isaías 40:31.<br />
+                    O Senhor abençoou: – “Lembre-se: o comando é meu! Estarei sempre na frente e não permitirei legalismo, orgulho e pecado no meio de vocês. Quando saírem para levarem a minha palavra, Eu os dirigirei”.
+                    Sendo assim, obedecendo a ordem de Deus, em 17 de novembro do ano de 2000, nascia o moto clube ÁGUIAS DE CRISTO.
+                </p>
+            </div>
+
+            @* LOGO HISTÓRIA *@
+            <div class="histotia-texto col-sm-6 col-xs-12">
+                <h1>História do Logotipo</h1>
+                <p>
+                    O Senhor falou:– “Desenhe um círculo negro, envolto numa faixa cor de ouro, outra mais fina branca e no centro coloque a figura de uma águia, a mais linda que eu mostrarei a você no Google. Sobre ela escreverás ‘Águias de Cristo’ e sob ela escreverás ‘Moto Clube Nova Friburgo – RJ. <br />
+                    Vocês são minhas águias! Este ministério não pertence a nenhuma denominação e sim, única e exclusivamente a Mim!”
+                </p>
+
+                @* CORES *@
+                <h1>Significado das Cores</h1>
+
+                @* PRETO *@
+                <div class="historia-cor cor-degrade-preto">
+                    <p>“Preto foi o lugar que um dia lhe tirei, cego, sujo, mergulhado no pecado, alcancei-o com minhas mãos e lhe resgatei das trevas”.</p>
+                </div>
+
+                @* LARANJA - OURO *@
+                <div class="historia-cor cor-degrade-laranja">
+                    <p>“O ouro significa a minha glória e ela resplandecerá no rosto daqueles que abraçarem este ministério”.</p>
+                </div>
+
+                @* BRANCO *@
+                <div class="historia-cor" style="background-color:#ffffff; border: solid 1px #ff6a00;">
+                    <p style="color:#000000;">“Branco é a paz que lhes dou. Não temas, Eu o seguro com as minhas mãos”.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@* CONTATO *@
+<div id="Contato" class="section">
+    <div class="container">
+
+        <div class="row contato-animacao animated fadeOutDown">
+            <div class="titulo">
+                <h2>Contato</h2>
+            </div>
+        </div>
+
+        <div class="row contato-animacao animated fadeOutDown">
+
+            <div class="col-xs-12 col-sm-6 contato-dados animacao-contatoEsquerda">
+                <form action="#" method="post" class="contato-formulario">
+                    <span class="field-validation-valid" data-valmsg-for="nome" data-valmsg-replace="true"></span> <label>Nome</label>
+                    <input class="text-box single-line" data-val="true" data-val-required="Informe seu " id="Usuario" name="nome" type="text" placeholder="Qual seu nome?" />
+
+                    <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span> <label>E-mail</label>
+                    <input class="text-box single-line" data-val="true" data-val-required="Informe seu " name="email" type="email" placeholder="Qual seu e-mail?" />
+
+                    <span class="field-validation-valid" data-valmsg-for="comentario" data-valmsg-replace="true"></span><label>Deixe seu comentário</label>
+                    <textarea class="text-box single-line" data-val="true" data-val-required="Diga " name="comentario" cols="30" rows="7" placeholder="Comentáro | Dúvida"></textarea>
+
+                    <input type="submit" value="Enviar" class="btn btn-formulario-enviar cor-degrade-laranja">
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 contato-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.8452337161593!2d-42.52805545011614!3d-22.283851721467787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x978aee90a9f20f%3A0xa99bc8b4fddbdc06!2sR.+Sara+Braune%2C+89+-+Braunes%2C+Nova+Friburgo+-+RJ%2C+28611-020!5e0!3m2!1spt-BR!2sbr!4v1517230319501" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/Home")
+
+
+
+
