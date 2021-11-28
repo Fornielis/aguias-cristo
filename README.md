@@ -4,15 +4,17 @@
 
 <p align="justify">
 <em>Aplicação dividida em duas partes.</em> </br>
-<a href="https://regional.mcaguiassp.com.br/"><h4>SITE</h4> </a>
+<h4>SITE</h4>
 No site principal os usuários podem visualizar toda parte institucional além de navegar nos meses e saber os eventos assim como saber os detalhes de cada unidade através da tabela interativa. </br> 
+<a href="https://regional.mcaguiassp.com.br/"><em>Visite Site</em></a>
 
 <h4>PAINEL ADMINISTRATIVO</h4>
 Área destinada aos administradores do sistema, nesse painel é possível alterar os baners do site, incluir e editar unidades, incluir e editar eventos. Também é possível gerenciar toda lista de membros e suas informações de cadastro e registro no moto clube.
 </p>
+<a href="https://portal.mcaguiassp.com.br/"><em>Visite Portal</em></a>
 
 <h1 align="center">
-  <img width="80%" src="https://ik.imagekit.io/fornielis/GITHUB/aguias_OjQ6bN9Tb3x.gif?updatedAt=1638088792309"/>
+  <img width="80%" src="https://ik.imagekit.io/fornielis/GITHUB/aguias-cristo_RJIKEKkTCvo.gif?updatedAt=1638090233432"/>
 </h1>
 
 ## Tecnologias
