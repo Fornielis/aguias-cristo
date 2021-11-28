@@ -14,7 +14,7 @@ No site principal os usuários podem visualizar toda parte institucional além d
 <a href="https://portal.mcaguiassp.com.br/"><em>Visite Portal</em></a>
 
 <h1 align="center">
-  <img width="80%" src="https://ik.imagekit.io/fornielis/GITHUB/aguias-cristo_RJIKEKkTCvo.gif?updatedAt=1638090233432"/>
+  <img width="80%" src="https://ik.imagekit.io/fornielis/GITHUB/aguiasCristo_1q7SG8WKyIw.gif?updatedAt=1638090797584"/>
 </h1>
 
 ## Tecnologias
